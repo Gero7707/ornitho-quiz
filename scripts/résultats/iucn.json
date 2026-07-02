@@ -1,0 +1,257 @@
+{
+    "taxon": {
+        "sis_id": 22735990,
+        "scientific_name": "Parus major",
+        "species_taxa": [],
+        "subpopulation_taxa": [],
+        "infrarank_taxa": [],
+        "kingdom_name": "ANIMALIA",
+        "phylum_name": "CHORDATA",
+        "class_name": "AVES",
+        "order_name": "PASSERIFORMES",
+        "family_name": "PARIDAE",
+        "genus_name": "Parus",
+        "species_name": "major",
+        "subpopulation_name": null,
+        "infra_name": null,
+        "authority": "Linnaeus, 1758",
+        "species": true,
+        "subpopulation": false,
+        "infrarank": false,
+        "ssc_groups": [
+            {
+                "name": "IUCN SSC Bird Red List Authority (BirdLife International)",
+                "url": "https://www.birdlife.org/",
+                "description": "Red List Authority Coordinator: Ian Burfield (ian.burfield@birdlife.org)"
+            }
+        ],
+        "common_names": [
+            {
+                "main": false,
+                "name": "\u039a\u03b1\u03bb\u03cc\u03b3\u03b5\u03c1\u03bf\u03c2",
+                "language": "gre"
+            },
+            {
+                "main": true,
+                "name": "Great Tit",
+                "language": "eng"
+            }
+        ],
+        "synonyms": []
+    },
+    "assessments": [
+        {
+            "year_published": "2024",
+            "latest": true,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/264577711",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "LC",
+            "assessment_id": 264577711,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "2021",
+            "latest": true,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/166451105",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "LC",
+            "assessment_id": 166451105,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Europe"
+                    },
+                    "code": "2"
+                }
+            ]
+        },
+        {
+            "year_published": "2016",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/87431138",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "LC",
+            "assessment_id": 87431138,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "2015",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/60321342",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "LC",
+            "assessment_id": 60321342,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Europe"
+                    },
+                    "code": "2"
+                }
+            ]
+        },
+        {
+            "year_published": "2012",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/38495375",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "LC",
+            "assessment_id": 38495375,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "2010",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/32477176",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "LC",
+            "assessment_id": 32477176,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "2008",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/32479013",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "NR",
+            "assessment_id": 32479013,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "2004",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/32481171",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "NR",
+            "assessment_id": 32481171,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "2000",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/32482947",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "NR",
+            "assessment_id": 32482947,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "1994",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/32484319",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "NR",
+            "assessment_id": 32484319,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        },
+        {
+            "year_published": "1988",
+            "latest": false,
+            "possibly_extinct": false,
+            "possibly_extinct_in_the_wild": false,
+            "sis_taxon_id": 22735990,
+            "url": "https://www.iucnredlist.org/species/22735990/32485880",
+            "taxon_scientific_name": "Parus major",
+            "red_list_category_code": "NR",
+            "assessment_id": 32485880,
+            "scopes": [
+                {
+                    "description": {
+                        "en": "Global"
+                    },
+                    "code": "1"
+                }
+            ]
+        }
+    ],
+    "params": {
+        "genus_name": "Parus",
+        "species_name": "major"
+    }
+}

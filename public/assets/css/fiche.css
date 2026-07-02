@@ -1,0 +1,694 @@
+/* ================================================
+   OrnithoQuiz — Fiche espèce (sonsListe & carteOiseau)
+   Mobile first — même thème que landing.css
+================================================ */
+
+/* LAYOUT PAGE
+------------------------------------------------ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a2318;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c9a84c;
+    border-radius: 4px;
+}
+
+
+.fiche-page {
+    min-height: 100svh;
+    padding: 2rem 1.25rem 4rem;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+* {
+    scrollbar-color: #c9a84c #1a2318;
+    scrollbar-width: thin;
+}
+
+/* RETOUR
+------------------------------------------------ */
+.fiche-back {
+    display:     inline-flex;
+    align-items: center;
+    gap:         0.4rem;
+    border: 1px solid var(--mist);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size:   1rem;
+    color:       var(--sage);
+    letter-spacing: 0.04em;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    transition:  color var(--transition), background-color var(--transition);
+}
+.fiche-back:hover { 
+    color: var(--leaf); 
+    background-color: var(--mist);
+}
+.fiche-back::before {
+    font-size: 0.9rem;
+}
+
+/* EN-TÊTE ESPÈCE
+------------------------------------------------ */
+.fiche-header { 
+    margin-bottom: 2rem;
+    animation: apparition 0.9s ease-in;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fiche-header .lien-externes a .img-lien{
+    border: 0.2px solid rgba(235, 241, 237);
+}
+.lien-externes a .fa-google, .lien-externes a .fa-wikipedia-w, .lien-externes a .fa-youtube , .lien-externes a .fa-feather, .lien-externes a .fa-dove {
+    font-size: 1.5rem;
+    color: var(--dawn);
+}
+
+.lien-externes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fiche-nom, .titre-liste {
+    font-family: var(--font-display);
+    font-size:   clamp(2rem, 8vw, 2.8rem);
+    font-weight: 700;
+    color:       var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+}
+
+.titre-liste {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    animation: apparition 0.9s ease-in;
+}
+
+.liste{
+    background-color: var(--moss);
+    border-radius: 8px;
+}
+
+.fiche-latin {
+    font-family: var(--font-display);
+    font-style:  italic;
+    font-size:   1.4rem;
+    color:       var(--dawn);
+    font-weight: 400;
+}
+
+/* CAROUSEL
+------------------------------------------------ */
+.carousel-wrap {
+    position:      relative;
+    border-radius: var(--radius-card);
+    overflow:      hidden;
+    background:    var(--moss);
+    margin-bottom: 2rem;
+    aspect-ratio:  4/3;
+}
+
+.carousel-track {
+    display:    flex;
+    height:     100%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+    flex:    0 0 100%;
+    height:  100%;
+    animation: apparition 0.9s ease-in;
+}
+.carousel-slide img {
+    width:           100%;
+    height:          100%;
+    object-fit:      cover;
+    object-position: center;
+    display:         block;
+}
+
+.carousel-btn {
+    position:        absolute;
+    top:             50%;
+    transform:       translateY(-50%);
+    background:      rgba(13,31,26,0.65);
+    border:          1px solid rgba(168,197,176,0.2);
+    color:           var(--mist);
+    width:           2.2rem;
+    height:          2.2rem;
+    border-radius:   50%;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    cursor:          pointer;
+    font-size:       1rem;
+    backdrop-filter: blur(4px);
+    transition:      background var(--transition), color var(--transition);
+    z-index:         2;
+}
+.carousel-btn:hover { background: rgba(212,168,71,0.2); color: var(--dawn); }
+.carousel-btn.prev  { left: 0.6rem; }
+.carousel-btn.next  { right: 0.6rem; }
+
+.carousel-dots {
+    position:  absolute;
+    bottom:    0.7rem;
+    left:      50%;
+    transform: translateX(-50%);
+    display:   flex;
+    gap:       0.4rem;
+    z-index:   2;
+}
+.carousel-dot {
+    width:         6px;
+    height:        6px;
+    border-radius: 50%;
+    background:    rgba(245,237,216,0.3);
+    cursor:        pointer;
+    transition:    background var(--transition), transform var(--transition);
+}
+.carousel-dot.active {
+    background: var(--dawn);
+    transform:  scale(1.3);
+}
+
+.carousel-zoom-hint {
+    position:    absolute;
+    bottom:      0.7rem;
+    right:       0.7rem;
+    color:       rgba(245,237,216,0.5);
+    z-index:     2;
+    pointer-events: none;
+}
+
+/* LIGHTBOX
+------------------------------------------------ */
+.lightbox {
+    position:        fixed;
+    inset:           0;
+    background:      rgba(5,14,11,0.95);
+    z-index:         999;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+}
+
+.lightbox-img {
+    max-width:     90vw;
+    max-height:    85vh;
+    object-fit:    contain;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position:   absolute;
+    top:        1rem;
+    right:      1rem;
+    background: rgba(13,31,26,0.7);
+    border:     1px solid rgba(168,197,176,0.2);
+    color:      var(--mist);
+    width:      2.2rem;
+    height:     2.2rem;
+    border-radius: 50%;
+    display:    flex;
+    align-items: center;
+    justify-content: center;
+    cursor:     pointer;
+    font-size:  0.9rem;
+    transition: color var(--transition), background var(--transition);
+}
+.lightbox-close:hover { color: var(--white); background: rgba(212,168,71,0.15); }
+
+.lightbox-nav {
+    position:   absolute;
+    top:        50%;
+    transform:  translateY(-50%);
+    background: rgba(13,31,26,0.7);
+    border:     1px solid rgba(168,197,176,0.2);
+    color:      var(--mist);
+    width:      2.8rem;
+    height:     2.8rem;
+    border-radius: 50%;
+    display:    flex;
+    align-items: center;
+    justify-content: center;
+    cursor:     pointer;
+    font-size:  1.1rem;
+    transition: color var(--transition), background var(--transition);
+    z-index:    2;
+}
+.lightbox-nav:hover  { color: var(--dawn); background: rgba(212,168,71,0.15); }
+.lightbox-nav.prev   { left: 1rem; }
+.lightbox-nav.next   { right: 1rem; }
+
+.lightbox-counter {
+    position:    absolute;
+    bottom:      1.2rem;
+    left:        50%;
+    transform:   translateX(-50%);
+    font-size:   0.8rem;
+    color:       var(--mist);
+    letter-spacing: 0.1em;
+}
+
+/* IMAGE SEULE (fallback)
+------------------------------------------------ */
+.fiche-photo {
+    width:         100%;
+    border-radius: var(--radius-card);
+    object-fit:    cover;
+    aspect-ratio:  4/3;
+    margin-bottom: 2rem;
+}
+
+/* SECTION TITRE
+------------------------------------------------ */
+.fiche-section-title {
+    font-family:   var(--font-display);
+    font-size:     1.1rem;
+    font-weight:   700;
+    color:         var(--white);
+    margin-bottom: 1rem;
+    display:       flex;
+    align-items:   center;
+    gap:           0.6rem;
+}
+.fiche-section-title::after {
+    content:    '';
+    flex:       1;
+    height:     1px;
+    background: linear-gradient(to right, rgba(107,158,126,0.4), transparent);
+}
+
+/* PLAYER AUDIO CUSTOM
+------------------------------------------------ */
+.sons-list {
+    list-style: none;
+    display:    flex;
+    flex-direction: column;
+    gap:        0.75rem;
+    margin-bottom: 2rem;
+}
+
+.son-item {
+    background:    var(--moss);
+    border:        1px solid rgba(61,107,82,0.4);
+    border-radius: 12px;
+    padding:       0.9rem 1rem;
+    transition:    border-color var(--transition);
+    /* height: 2rem; */
+}
+.son-item:hover { border-color: rgba(107,158,126,0.5); }
+
+.son-titre {
+    font-size:     01rem;
+    color:         var(--sage);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+}
+
+.player {
+    display:     flex;
+    align-items: center;
+    gap:         0.75rem;
+}
+
+.player-btn {
+    flex-shrink:     0;
+    width:           2rem;
+    height:          2rem;
+    border-radius:   50%;
+    background:      rgba(212,168,71,0.12);
+    border:          1px solid rgba(212,168,71,0.3);
+    color:           var(--dawn);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    cursor:          pointer;
+    transition:      background var(--transition), border-color var(--transition);
+}
+.player-btn:hover     { background: rgba(212,168,71,0.22); border-color: var(--dawn); }
+.player.playing .player-btn { background: rgba(212,168,71,0.2); border-color: var(--dawn); }
+
+.player-progress-wrap {
+    position:   relative;
+    flex:       1;
+    height:     3rem;
+    display:    flex;
+    align-items: center;
+    cursor:     pointer;
+}
+
+.player-progress-bg {
+    position:      absolute;
+    left:          0; right: 0;
+    height:        3px;
+    background:    rgba(107,158,126,0.25);
+    border-radius: 2px;
+}
+
+.player-progress-fill {
+    position:      absolute;
+    left:          0;
+    height:        3px;
+    background:    var(--dawn);
+    border-radius: 2px;
+    transition:    width 0.1s linear;
+    pointer-events: none;
+}
+
+.player-progress-thumb {
+    position:      absolute;
+    top:           50%;
+    transform:     translateY(-50%);
+    width:         12px;
+    height:        12px;
+    border-radius: 50%;
+    background:    var(--dawn);
+    pointer-events: none;
+    transition:    left 0.1s linear;
+}
+
+.player-time {
+    flex-shrink: 0;
+    font-size:   1.5rem;
+    color:       var(--sage);
+    min-width:   2.5rem;
+    text-align:  right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* DESCRIPTION
+------------------------------------------------ */
+.fiche-description {
+    background:    var(--moss);
+    border:        1px solid rgba(61,107,82,0.35);
+    border-radius: var(--radius-card);
+    padding:       1.25rem;
+    margin-bottom: 1.5rem;
+    font-size:     1rem;
+    line-height:   1.75;
+    color:         var(--mist);
+}
+.fiche-description p               { margin-bottom: 0.75rem; }
+.fiche-description p:last-child    { margin-bottom: 0; }
+.fiche-description strong          { color: var(--cream); font-weight: 500; }
+
+/* IUCN
+------------------------------------------------ */
+.iucn-block {
+    background:    rgba(13,31,26,0.6);
+    border:        1px solid rgba(61,107,82,0.3);
+    border-radius: var(--radius-card);
+    padding:       1.25rem;
+    margin-bottom: 1.5rem;
+    font-size:     0.85rem;
+}
+
+.iucn-block p{
+    color: var(--mist);
+    margin-bottom: 1rem;
+}
+
+.iucn-row {
+    display:       flex;
+    gap:           0.5rem;
+    align-items:   baseline;
+    margin-bottom: 0.5rem;
+    color:         var(--mist);
+}
+.iucn-row:last-child { margin-bottom: 0; }
+
+.iucn-label {
+    font-size:   0.75rem;
+    color:       var(--sage);
+    min-width:   6rem;
+    flex-shrink: 0;
+}
+
+.iucn-row a {
+    color:                  var(--dawn);
+    text-decoration:        underline;
+    text-underline-offset:  2px;
+    font-size:              0.8rem;
+}
+
+/* .onglet-contenu { display: block; } */
+.onglets-nav { display: none; }
+/* input[type="radio"] { display: none; } */
+
+.onglet-contenu{
+    height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    margin-top: 2rem;
+    
+}
+
+.onglets-nav {
+    display: flex;
+    border-bottom: 1px solid rgba(107,158,126,0.3);
+    margin-bottom: 1.5rem;
+}
+
+.onglets-nav label {
+    cursor: pointer;
+    padding: 0.5rem 1.25rem;
+    color: var(--sage);
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+    font-size: 1.2rem;
+}
+
+.onglet-contenu { display: none; }
+
+#tab-sons:checked ~ .onglets-nav label[for="tab-sons"],
+#tab-infos:checked ~ .onglets-nav label[for="tab-infos"] {
+    color: var(--dawn);
+    border-bottom-color: var(--dawn);
+}
+
+#tab-sons:checked ~ #contenu-sons { display: block; }
+#tab-infos:checked ~ #contenu-infos { display: block; }
+
+
+
+/*Liste Oiseaux
+---------------------------------*/
+
+
+.element-liste{
+    background-color: var(--fern);
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    width: 80%;
+    border: 1px solid rgba(61,107,82,0.25);
+    transition: border-color var(--transition), color var(--transition);
+    color: var(--mist);
+    margin: auto;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.element-liste:hover{
+    border-color: var(--sage);
+    color: var(--white);
+    transform: translateY(-0.5rem);
+    background-color:rgba(107,158,126,0.5) ;
+}
+
+.form-liste{
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-liste select, .form-liste input[type="text"]{
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(61,107,82,0.25);
+    background-color: var(--fern);
+    color: var(--mist);
+    transition: border-color var(--transition), color var(--transition);
+    width: 55%;
+    margin: auto;
+}
+
+.form-liste input[type="text"]{
+    margin-top:0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-liste label{
+    color:var(--mist);  
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.form-liste button{
+    background-color: transparent;
+    color: var(--mist);
+    border: 1px solid var(--mist);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 50%;
+    margin: auto;
+}
+
+.form-liste button:hover{
+    background-color: var(--mist);
+    color: var(--leaf);
+    border: 1px solid var(--mist);
+}
+
+
+.radio-display-none{
+    display: none;
+}
+
+@keyframes apparition {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lien-wiki-en{
+    color: var(--dawn);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+
+
+/* DESKTOP
+------------------------------------------------ */
+@media (min-width: 640px) {
+    .fiche-page { padding: 6rem 2rem 5rem; }
+}
+
+@media (min-width: 1024px) {
+    .lightbox-nav.prev { left: 2rem; }
+    .lightbox-nav.next { right: 2rem; }
+    section{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .en-tete{
+        width: 50%;
+    }
+    .fiche-page{
+        max-width: none;
+        padding: 1rem;
+    }
+    
+    .onglets{
+        width: 50%;
+    }
+
+    .fiche-back{
+        margin-bottom: 1.5rem;
+
+    }
+
+    .fiche-description{
+        font-size: 1.1rem;
+    }
+
+    .iucn-block{
+        font-size: 1rem;
+    }
+
+    .element-liste{
+        width: 100%;
+    }
+
+    .carte-liste ul{
+        list-style: none;
+    }
+    
+    .carte-liste{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 1rem;
+    }
+
+    .fond-liste-gauche{
+        background-image: url('/assets/img/ssBois/robin.webp');
+    }
+
+    .fond-liste-droite{
+        background-image: url('/assets/img/ssBois/king-fisher2.webp');
+    }
+
+    .fond-liste-gauche, .fond-liste-droite{
+        animation: apparition 0.9s ease-in;
+        background-size:cover;
+        width: 21%;
+        height: 62vh;
+        border-radius: 10px;
+    }
+        
+
+    .liste{
+        width: 30%;
+    }
+
+    .liste ul {
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        height: 57vh;
+    }
+
+    footer{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .fiche-header{
+        margin-bottom: 5rem;
+    }
+
+    .fiche-header > a .img-lien{
+        border: 0.2px solid rgba(235, 241, 237);
+    }
+
+    .fiche-latin{
+        margin-top: 1rem;
+    }
+
+    .lien-externes a .fa-google, .lien-externes a .fa-wikipedia-w, .lien-externes a .fa-youtube , .lien-externes a .fa-feather, .lien-externes a .fa-dove {
+        font-size: 2rem;
+        color: var(--dawn);
+    }
+
+    .lien-externes{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        justify-content: space-between;
+    }
+
+    .fiche-header{
+        display: flex;
+    }
+}
