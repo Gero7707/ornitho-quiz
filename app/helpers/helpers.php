@@ -9,7 +9,7 @@ function getAudioUrl(string $cheminFichier): string{
     if (str_starts_with($cheminFichier, 'http')) {
         return $cheminFichier;
     }
-    return Son::$audioBaseUrl . $cheminFichier;
+    return rtrim(Son::$audioBaseUrl, '/') . '/' . ltrim($cheminFichier, '/');
 }
 
 function iucnCouleur(string $statut): string {

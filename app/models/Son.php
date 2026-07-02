@@ -8,7 +8,7 @@ class Son {
 
     public function __construct() {
         $this->db = Database::getInstance()->getConnection();
-        self::$audioBaseUrl = $_ENV['AUDIO_BASE_URL'] ?? '/audio/';
+        self::$audioBaseUrl = getenv('R2_PUBLIC_URL') ?: '/audio/';
     }
 
     public function getByOiseauId($oiseau_id){

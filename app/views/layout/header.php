@@ -35,7 +35,7 @@
     <?php if (isset($pageCss) && $pageCss === 'birdnet'): ?>
         <link rel="stylesheet" href="/assets/css/birdnet.css">
     <?php endif; ?>
-    <script>window.AUDIO_BASE_URL = "<?= $_ENV['AUDIO_BASE_URL'] ?? '' ?>";</script>
+    <script>window.AUDIO_BASE_URL = "<?= getenv('R2_PUBLIC_URL') ?: '' ?>";</script>
     <script defer src="/assets/js/audio.js"></script>
     <?php if (isset($pageCss) && $pageCss === 'birdnet'): ?>
         <script src="/assets/js/birdnet.js" defer></script>
