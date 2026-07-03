@@ -22,6 +22,13 @@
     --gold:    #d4a847;
     --cream:   #f5edd8;
     --white:   #faf7f0;
+    --bs-success : #63af83;/*variable bootstrap*/
+    --bs-success-rgb :46, 125 , 79;
+    --success-bg : #e9fcef;
+    --bs-danger :  #C62828;/*variable bootstrap*/
+    --danger-bg :#fdd6d6;
+    --input-form :#cf7979;
+    --bs-danger-rgb : 198 , 40, 40 ;
 
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body:    'DM Sans', system-ui, sans-serif;
@@ -644,7 +651,13 @@ a   { text-decoration: none; color: inherit; }
     letter-spacing: 0.03em;
     transition:     background var(--transition), border-color var(--transition);
 }
-.birdnet-btn:hover { background: rgba(212,168,71,0.08); border-color: var(--dawn); }
+.birdnet-btn:hover { background: rgba(212,168,71,0.08); border-color: var(--dawn); }c
+
+
+
+
+
+
 
 /* FOOTER
 ------------------------------------------------ */

@@ -1,0 +1,55 @@
+/* Messages 
+------------------------------------------------ */
+
+.success-message , .success-message-php{
+    color: var(--bs-success);
+    background-color: var(--success-bg);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.error-message ,.error-message-php{
+    color: var(--bs-danger);
+    background-color: var(--danger-bg);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+
+
+/* Connexion
+------------------------------------------------ */
+
+.form-container{
+    width: 35%;
+    background-color: var(--leaf);
+    margin: auto;
+    margin-top: 14rem;
+    border-radius: 8px;
+    padding-bottom: 6rem;
+    padding-top: 1rem;
+    margin-bottom: 14rem;
+}
+.form-container input{
+    width: 55%;
+    margin: auto;
+}
+
+.form-container label{
+    text-align: center;
+    width: 100%;
+}
+
+.btn-form{
+    background-color: transparent;
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--mist);
+    border: 1px solid var(--mist);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 40%;
+    margin: auto;
+}
