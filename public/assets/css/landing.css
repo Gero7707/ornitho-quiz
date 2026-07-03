@@ -22,6 +22,13 @@
     --gold:    #d4a847;
     --cream:   #f5edd8;
     --white:   #faf7f0;
+    --bs-success : #63af83;/*variable bootstrap*/
+    --bs-success-rgb :46, 125 , 79;
+    --success-bg : #e9fcef;
+    --bs-danger :  #C62828;/*variable bootstrap*/
+    --danger-bg :#fdd6d6;
+    --input-form :#cf7979;
+    --bs-danger-rgb : 198 , 40, 40 ;
     
 
     --font-display: 'Playfair Display', Georgia, serif;
@@ -41,6 +48,7 @@ body {
     font-weight: 300;
     overflow-x:  hidden;
     -webkit-font-smoothing: antialiased;
+    position: relative;
 }
 
 img { display: block; max-width: 100%; }
@@ -691,8 +699,18 @@ a   { text-decoration: none; color: inherit; }
 }
 .footer-links a:hover { color: var(--white); }
 
-
-
+/* Ereurs connection >=5 manquées ========================================================================================================= */
+.error-landing{
+    color: var(--bs-danger) !important;
+    background-color: var(--danger-bg) !important;
+    opacity: 0.6;
+    padding: 1rem;
+    width: 100vw;
+    border-radius: 8px;
+    position: absolute;
+    margin-top: 8rem;
+    z-index: 10;
+}
 
 
 
