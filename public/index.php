@@ -15,6 +15,7 @@ session_start([
 
 require_once  __DIR__ . '/../core/Database.php';
 require_once __DIR__ . '/../core/Router.php';
+require_once __DIR__ . '/../core/Auth.php';
 require_once __DIR__ . '/../app/helpers/helpers.php';
 require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/OiseauController.php';
@@ -67,6 +68,7 @@ $router->add('GET', '/birdnet/match', 'BirdnetController', 'matchSpecies');
 // $router->add('GET', '/thematiques', 'ThematiqueController','index');
 
 $router->add('GET' , '/login' , 'UserController' , 'showLogin');
+$router->add('POST' , '/login' , 'UserController' , 'login');
 
 $url = strtok($_SERVER['REQUEST_URI'], '?');
 

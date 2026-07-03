@@ -9,8 +9,9 @@ require_once __DIR__ . '/../layout/nav.php';
     <div class="form-container">
         <h1 class="text-center mt-5">Connexion</h1>
         <form action="/login" method="POST">
-            <label class="form-label" for="email">Email :</label>
-            <input class="form-control mb-3" type="email" name="email" id="email">
+            <?= Auth::csrfField() ?>
+            <label class="form-label" for="login">Email :</label>
+            <input class="form-control mb-3" type="text" name="login" id="login">
             <label for="password" class="form-label">Mot de passe : </label>
             <input type="password" class="form-control mb-3" name="password" id="password">
             <button type="submit" class="mt-5 btn-form">Se connecter</button>

@@ -16,6 +16,11 @@ require_once __DIR__ . '/layout/header.php';
     </label>
 
     <div class="nav-links">
+        <?php if (getenv('APP_ENV') === 'dev'): ?>
+            <button popovertarget="my-popover">Open Var dump</button>
+            <div popover id="my-popover"><?php var_dump($_SESSION); ?></div>
+        <?php endif; ?>
+
         <a href="/login"><i class="fa-solid fa-user"></i> Compte</a>
         <a href="/a-propos">À propos</a>
         <a href="#contact">Contact</a>

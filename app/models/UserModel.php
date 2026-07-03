@@ -8,9 +8,9 @@ class UserModel{
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function findByEmail(string $email){
-        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE email = :email");
-        $stmt->bindValue(':email' , $email , PDO::PARAM_STR);
+    public function findByInput(string $identifiant) {
+        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE email = :identifiant OR pseudo = :identifiant");
+        $stmt->bindValue(':identifiant', $identifiant, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
