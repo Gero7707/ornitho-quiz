@@ -1,16 +1,26 @@
 /* Messages 
 ------------------------------------------------ */
 
+:root{
+    --bs-success : #63af83;/*variable bootstrap*/
+    --bs-success-rgb :46, 125 , 79;
+    --success-bg : #e9fcef;
+    --bs-danger :  #C62828;/*variable bootstrap*/
+    --danger-bg :#fdd6d6;
+    --input-form :#cf7979;
+    --bs-danger-rgb : 198 , 40, 40 ;
+}
+
 .success-message , .success-message-php{
-    color: var(--bs-success);
-    background-color: var(--success-bg);
+    color: var(--bs-success) !important;
+    background-color: var(--success-bg) !important;
     padding: 1rem;
     border-radius: 8px;
 }
 
 .error-message ,.error-message-php{
-    color: var(--bs-danger);
-    background-color: var(--danger-bg);
+    color: var(--bs-danger) !important;
+    background-color: var(--danger-bg) !important;
     padding: 1rem;
     border-radius: 8px;
 }
@@ -42,6 +52,7 @@
     text-align: center;
     width: 100%;
 }
+
 
 .btn-form{
     background-color: transparent;

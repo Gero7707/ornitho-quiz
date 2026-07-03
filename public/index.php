@@ -70,6 +70,9 @@ $router->add('GET', '/birdnet/match', 'BirdnetController', 'matchSpecies');
 $router->add('GET' , '/login' , 'UserController' , 'showLogin');
 $router->add('POST' , '/login' , 'UserController' , 'login');
 
+$router->add('GET', '/logout', 'UserController', 'showLogOut');
+$router->add('POST', '/logout', 'UserController', 'logOut');
+
 $url = strtok($_SERVER['REQUEST_URI'], '?');
 
 $router->dispatch($url);

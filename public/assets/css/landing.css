@@ -22,13 +22,7 @@
     --gold:    #d4a847;
     --cream:   #f5edd8;
     --white:   #faf7f0;
-    --bs-success : #63af83;/*variable bootstrap*/
-    --bs-success-rgb :46, 125 , 79;
-    --success-bg : #e9fcef;
-    --bs-danger :  #C62828;/*variable bootstrap*/
-    --danger-bg :#fdd6d6;
-    --input-form :#cf7979;
-    --bs-danger-rgb : 198 , 40, 40 ;
+    
 
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body:    'DM Sans', system-ui, sans-serif;

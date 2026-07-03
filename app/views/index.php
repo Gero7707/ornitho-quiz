@@ -6,7 +6,7 @@ require_once __DIR__ . '/layout/header.php';
 ================================================ -->
 <nav class="nav" id="nav">
     <a href="/" class="nav-logo">Ornitho<span>Quiz</span></a>
-
+    
     <!-- Menu burger CSS-only -->
     <input type="checkbox" id="burger-toggle" class="burger-toggle">
     <label for="burger-toggle" class="burger-btn" aria-label="Menu">
@@ -14,17 +14,20 @@ require_once __DIR__ . '/layout/header.php';
         <span></span>
         <span></span>
     </label>
-
+    
     <div class="nav-links">
         <?php if (getenv('APP_ENV') === 'dev'): ?>
             <button popovertarget="my-popover">Open Var dump</button>
-            <div popover id="my-popover"><?php var_dump($_SESSION); ?></div>
+            <div popover id="my-popover"><?php var_dump($_COOKIE); ?></div>
         <?php endif; ?>
-
-        <a href="/login"><i class="fa-solid fa-user"></i> Compte</a>
         <a href="/a-propos">À propos</a>
         <a href="#contact">Contact</a>
         <a href="/identifier">Identifier un oiseau</a>
+        <?php if(!isset($_SESSION['utilisateur_id'])) : ?>
+            <a href="/login"><i class="fa-solid fa-user"></i> Connexion</a>
+        <?php else : ?>
+            <a href="/logout">Déconnexion</a>
+        <?php endif ?>
     </div>
 </nav>
 
