@@ -16,6 +16,7 @@ require_once __DIR__ . '/layout/header.php';
     </label>
 
     <div class="nav-links">
+        <a href="/login"><i class="fa-solid fa-user"></i> Compte</a>
         <a href="/a-propos">À propos</a>
         <a href="#contact">Contact</a>
         <a href="/identifier">Identifier un oiseau</a>
