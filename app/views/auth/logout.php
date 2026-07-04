@@ -13,6 +13,7 @@ require_once __DIR__ . '/../layout/nav.php';
         <form action="/logout" method="POST">
             <?= Auth::csrfField() ?>
             <button type="submit" class="mt-5 btn-form">Se déconnecter</button>
+            <a href="/" class="mt-5 btn-form text-center">Annuler</a>
         </form>
         <?php if ($_GET['error'] ?? null): ?>
             <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>

@@ -84,4 +84,11 @@ class UserController{
         header('Location: /');
         exit();
     }
+
+    public function showProfil(){
+        Auth::checkAuth();
+        $id = $_SESSION['utilisateur_id'];
+        $user = $this->users->findById($id);
+        require_once __DIR__ . '/../views/auth/profil.php';
+    }
 }

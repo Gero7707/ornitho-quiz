@@ -14,4 +14,11 @@ class UserModel{
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function findById(int $id){
+        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE id = :id");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

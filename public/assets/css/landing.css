@@ -712,6 +712,24 @@ a   { text-decoration: none; color: inherit; }
     z-index: 10;
 }
 
+.success-landing{
+    color: var(--bs-success) !important;
+    background-color: var(--success-bg) !important;
+    opacity: 0.6;
+    padding: 1rem;
+    width: 100vw;
+    border-radius: 8px;
+    position: absolute;
+    margin-top: 8rem;
+    z-index: 10;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0%   { opacity: 0.6; }   /* au début : visible */
+    70%  { opacity: 0.6; }   /* jusqu'à 70% du temps : toujours visible */
+    100% { opacity: 0; }   /* à la fin : invisible */
+}
 
 
 footer img {

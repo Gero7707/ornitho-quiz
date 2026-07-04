@@ -73,6 +73,8 @@ $router->add('POST' , '/login' , 'UserController' , 'login');
 $router->add('GET', '/logout', 'UserController', 'showLogOut');
 $router->add('POST', '/logout', 'UserController', 'logOut');
 
+$router->add('GET' , '/profil' , 'UserController' , 'showProfil');
+
 $url = strtok($_SERVER['REQUEST_URI'], '?');
 
 $router->dispatch($url);

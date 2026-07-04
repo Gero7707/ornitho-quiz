@@ -1,3 +1,9 @@
+main{
+    background-image: url('/assets/img/ssBois/desk-sous-bois3.png');
+    background-size: cover;
+    padding: 2rem;
+}
+
 /* Messages 
 ------------------------------------------------ */
 
@@ -54,7 +60,7 @@
 }
 
 
-.btn-form{
+.btn-form , .btn-form a{
     background-color: transparent;
     display: block;
     font-size: 1rem;
@@ -66,4 +72,49 @@
     cursor: pointer;
     width: 40%;
     margin: auto;
+}
+
+.btn-form:hover{
+    background-color:var(--mist);
+    color: var(--leaf);
+}
+
+.form-container-profil{
+    width: 70%;
+    background-color: var(--leaf);
+    margin: auto;
+    margin-top: 10rem;
+    border-radius: 8px;
+    padding-bottom: 6rem;
+    padding-top: 1rem;
+    margin-bottom: 14rem;
+}
+
+.donnees-container{
+    width: 40%;
+    background-color:var(--mist);
+    color: var(--moss);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: auto;
+}
+
+.btn-form-profil{
+    background-color: var(--leaf);
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--mist);
+    border: 1px solid var(--mist);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 40%;
+    margin: auto;
+}
+
+.btn-form-profil:hover{
+    background-color: var(--mist);
+    border: 1px solid var(--leaf);
+    color: var(--leaf);
 }
