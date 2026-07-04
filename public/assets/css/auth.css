@@ -48,6 +48,7 @@ main{
     padding-bottom: 6rem;
     padding-top: 1rem;
     margin-bottom: 14rem;
+    border: 1px solid var(--cream);
 }
 .form-container input{
     width: 55%;
@@ -117,4 +118,11 @@ main{
     background-color: var(--mist);
     border: 1px solid var(--leaf);
     color: var(--leaf);
+}
+
+@media (max-width: 640px){
+    .form-container-profil,.form-container{
+        width: 98%;
+        margin-top: 4rem;
+    }
 }

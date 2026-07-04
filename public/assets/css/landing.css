@@ -127,6 +127,11 @@ a   { text-decoration: none; color: inherit; }
 /* Ouvre le menu quand coché */
 .burger-toggle:checked ~ .nav-links {
     display: flex;
+    background-color: var(--fern);
+    width: 50%;
+    border-radius: 8px;
+    border: 1px solid var(--cream);
+    right: 10px;
 }
 
 /* Anime le burger en croix */
@@ -850,5 +855,4 @@ footer .logo{
     .martin-section{
         height: 50rem;
     }
-
 }

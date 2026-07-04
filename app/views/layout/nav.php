@@ -14,6 +14,7 @@
             <button popovertarget="my-popover">Open Var dump</button>
             <div popover id="my-popover"><?php var_dump($_COOKIE); ?></div>
         <?php endif; ?>
+        <a href="/">Accueil</a>
         <a href="/a-propos">À propos</a>
         <a href="#contact">Contact</a>
         
