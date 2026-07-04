@@ -66,20 +66,9 @@ class UserController{
         require_once __DIR__ . '/../views/auth/logout.php';
     }
     public function logOut(){
-        Auth::verifyCsrfToken();          // 1. protection CSRF
+        Auth::verifyCsrfToken();          
 
-        $_SESSION = [];                    // 2. vider les données en mémoire
-
-        // 3. supprimer le cookie de session côté navigateur
-        if (ini_get('session.use_cookies')) {
-            $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-                $params['path'], $params['domain'],
-                $params['secure'], $params['httponly']
-            );
-        }
-
-        session_destroy();                 // 4. détruire côté serveur
+        Auth::destroySession();
 
         header('Location: /');
         exit();
@@ -89,6 +78,11 @@ class UserController{
         Auth::checkAuth();
         $id = $_SESSION['utilisateur_id'];
         $user = $this->users->findById($id);
+        if (!$user) {
+            Auth::destroySession();
+            header('Location: /login?error=' . urlencode('Session expirée, veuillez vous reconnecter.'));
+            exit;
+        }
         require_once __DIR__ . '/../views/auth/profil.php';
     }
 }
