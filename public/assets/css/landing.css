@@ -837,6 +837,22 @@ footer .logo{
         width: 100%;
     }
 
+    .about{
+        background-color: var(--fern);
+        width: 90%;
+        padding: 2rem 7rem 2rem 7rem;
+        border: 1px solid var(--cream);
+        color: #ffffff;
+        border-radius: 8px;
+        margin: auto;
+        opacity: 0.8;
+    }
+
+    .main-a-propos{
+        background-image: url('/assets/img/ssBois/desk-sous-bois3.png');
+        padding: 7rem;
+    }
+
 }
 
 @media (min-width: 1200px) {
