@@ -15,6 +15,25 @@ class Auth{
     // À appeler en première ligne de chaque méthode controller protégée
     // ============================================================
 
+    private static function enforceInactivityTimeout(): void {
+        // Première requête authentifiée : on pose le marqueur, rien à expirer encore
+        if (!isset($_SESSION['last_activity'])) {
+            $_SESSION['last_activity'] = time();
+            return;
+        }
+        $limite = ($_SESSION['role_id'] === 1) ? self::INACTIVITY_LIMIT_CLIENT : self::INACTIVITY_LIMIT_STAFF;
+        
+        // Inactif depuis plus que la limite → session invalidée, retour au login
+        if (time() - $_SESSION['last_activity'] > $limite) {
+            session_unset();
+            session_destroy();
+            header('location: /auth/login');
+            exit();
+        }
+
+        // Requête valide → on repousse l'échéance
+        $_SESSION['last_activity'] = time();
+    }
     /**
      * Vérifie qu'un utilisateur est connecté
      * Redirige vers /auth/login si la session est absente
@@ -25,9 +44,27 @@ class Auth{
             header('location: /login');
             exit();
         }
+        self::enforceInactivityTimeout();
     }
 
-    
+    /**
+     * Vérifie que l'utilisateur connecté est un administrateur
+     * Double vérification : connecté ET rôle admin
+     * Redirige vers /auth/login si non connecté, vers / si connecté mais pas admin
+     * Usage : Auth::checkAdmin(); en haut de chaque méthode réservée aux admins
+     */
+
+    public static function checkAdmin(): void {
+        if(!isset($_SESSION['utilisateur_id'])){
+            header('location: /auth/login');
+            exit();
+        }
+        self::enforceInactivityTimeout();
+        if ($_SESSION['role_id'] !== 2){
+            header('location: /');
+            exit();
+        }
+    }
 
     // ============================================================
     // PROTECTION CSRF (Cross-Site Request Forgery)
@@ -42,14 +79,14 @@ class Auth{
      * En cas d'échec : redirige vers l'URL $retour fournie par le controller 
      * À appeler en première ligne de chaque bloc POST
      */
-    public static function verifyCsrfToken(string $retour = '/'): void {
+    public static function verifyCsrfToken(): void {
         if (
             !isset($_POST['csrf_token']) ||
             !isset($_SESSION['csrf_token']) ||
             !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
         ) {
             $error = "Votre session a expiré ou le formulaire a été soumis plusieurs fois. Veuillez réessayer.";
-            header('Location: ' . $retour . '?error=' . urlencode($error));
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . '?error=' . urlencode($error));
             exit();
         }
     }
@@ -66,17 +103,5 @@ class Auth{
         return '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">';
     }
 
-    public static function destroySession(): void {
-        $_SESSION = [];
-
-        if (ini_get('session.use_cookies')) {
-            $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-                $params['path'], $params['domain'],
-                $params['secure'], $params['httponly']
-            );
-        }
-
-        session_destroy();
-    }
+    
 }
