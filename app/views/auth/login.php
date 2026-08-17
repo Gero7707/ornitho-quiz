@@ -12,12 +12,15 @@ require_once __DIR__ . '/../layout/nav.php';
             <?= Auth::csrfField() ?>
             <label class="form-label" for="login">Email :</label>
             <input class="form-control mb-3" type="text" name="login" id="login">
-            <label for="password" class="form-label">Mot de passe : </label>
+            <div class="d-flex password flex-column">
+                <label for="password" class="form-label">Mot de passe : </label>
+                <button type="button" class="btn-password m-auto hover-btn" data-target="password" aria-label="Voir le mot de passe" data-tooltip="Voir le mot de passe"><i class="fa-regular fa-eye"></i></button>
+            </div>
             <input type="password" class="form-control mb-3" name="password" id="password">
             <button type="submit" class="mt-5 btn-form">Se connecter</button>
         </form>
         <p class="text-center mt-5">Pour vous connecter vous devez avoir un compte chez nous .</p>
-        <a href="/creer-compte" class="btn-form text-center">Créer un compte</a>
+        <a href="/register" class="btn-form text-center">Créer un compte</a>
         <?php if ($_GET['error'] ?? null): ?>
             <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
         <?php endif ?>
@@ -31,5 +34,7 @@ require_once __DIR__ . '/../layout/nav.php';
 
 
 <?php 
+$loadScriptJs = 'form.js';
+require_once __DIR__ . '/../layout/importJs.php';
 require_once __DIR__ . '/../layout/footer.php';
 ?>

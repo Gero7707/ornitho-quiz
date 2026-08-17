@@ -5,8 +5,7 @@ require_once __DIR__ . '/../models/Son.php';
 
 class HomeController
 {
-    public function index(): void
-    {
+    public function index(): void{
         $oiseau = new Oiseau();
         $son    = new Son();
 
@@ -18,8 +17,7 @@ class HomeController
         require_once __DIR__ . '/../views/index.php';
     }
 
-    public function about(): void
-    {
+    public function aPropos(): void{
         require_once __DIR__ . '/../views/about.php';
     }
 }

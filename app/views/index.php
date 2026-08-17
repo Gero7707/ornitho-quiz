@@ -211,6 +211,7 @@ require_once __DIR__ . '/layout/nav.php';
         </button>
     </div>
 </section>
+<div class="section-divider"></div>
 <script src="/assets/js/landing.js"></script>
 <?php
 require_once __DIR__ . '/layout/footer.php';
