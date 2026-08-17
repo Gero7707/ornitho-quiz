@@ -3,14 +3,7 @@ require_once __DIR__ . '/../layout/header.php';
 ?>
 <main class="fiche-page">
     
-    <!-- RETOUR -->
-    <?php if(isset($_GET['from']) && $_GET['from'] === 'quiz'): ?>
-        <a href="javascript:history.back()" class="fiche-back">← Retour au Quiz</a>
-    <?php elseif(isset($_GET['from']) && $_GET['from'] === 'birdnet'): ?>
-        <a href="javascript:history.back()" class="fiche-back">← Retour à l'identification</a>
-    <?php else: ?>
-        <a href="/oiseaux" class="fiche-back"> ← Retour à la liste</a>
-    <?php endif; ?>
+    
 
     <section>
         
@@ -20,6 +13,14 @@ require_once __DIR__ . '/../layout/header.php';
                 <div>
                     <h2 class="fiche-nom"><?= htmlspecialchars($oiseau['nom_commun']) ?></h2>
                     <p class="fiche-latin"><?= htmlspecialchars($oiseau['nom_latin'] ?? '') ?></p>
+                    <!-- RETOUR -->
+                    <?php if(isset($_GET['from']) && $_GET['from'] === 'quiz'): ?>
+                        <a href="javascript:history.back()" class="fiche-back">← Retour au Quiz</a>
+                    <?php elseif(isset($_GET['from']) && $_GET['from'] === 'birdnet'): ?>
+                        <a href="javascript:history.back()" class="fiche-back">← Retour à l'identification</a>
+                    <?php else: ?>
+                        <a href="/oiseaux" class="fiche-back"> ← Retour à la liste</a>
+                    <?php endif; ?>
                 </div>
                 
             </div>

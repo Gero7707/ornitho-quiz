@@ -67,6 +67,8 @@ $router->add('GET', '/birdnet/match', 'BirdnetController', 'matchSpecies');
 // $router->add('POST','/quiz/:niveau','QuizController',  'repondre');
 // $router->add('GET', '/thematiques', 'ThematiqueController','index');
 
+$router->add('GET', '/register' , 'UserController', 'showRegister');
+$router->add('POST', '/register' , 'UserController', 'register');
 $router->add('GET' , '/login' , 'UserController' , 'showLogin');
 $router->add('POST' , '/login' , 'UserController' , 'login');
 
@@ -74,6 +76,8 @@ $router->add('GET', '/logout', 'UserController', 'showLogOut');
 $router->add('POST', '/logout', 'UserController', 'logOut');
 
 $router->add('GET' , '/profil' , 'UserController' , 'showProfil');
+
+$router->add('GET' , '/a-propos' , 'HomeController' , 'aPropos');
 
 $url = strtok($_SERVER['REQUEST_URI'], '?');
 
