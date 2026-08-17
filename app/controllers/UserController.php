@@ -1,5 +1,6 @@
 <?php 
 require_once __DIR__ . '/../models/UserModel.php';
+require_once __DIR__ . '/../services/MailService.php';
 require_once __DIR__ . '/../models/LoginAttemptsModel.php';
 
 
@@ -8,9 +9,12 @@ class UserController{
 
     private LoginAttemptModel $loginAttempts;
 
+    private MailService $mailService;
+
     public function __construct(){
         $this->users = new UserModel();
         $this->loginAttempts = new LoginAttemptModel();
+        $this->mailService = new MailService();
     }
 
     public function showLogin(){
@@ -145,6 +149,39 @@ class UserController{
         ];
 
         $this->users->createUser($data);
+
+        $titre = "Votre compte a été créé ! .";
+
+        $lien = getenv('APP_URL') . '/login';
+            $bouton = '
+                <div style="text-align: center; padding: 24px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                        <a href="' . $lien . '" target="_blank"
+                            style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238; text-decoration: none;">
+                            Connexion
+                        </a>
+                        </td>
+                    </tr>
+                    </table>
+                </div>';
+
+        $imageHaut = '<img src="/assets/img/email-haut.jpg" 
+            alt="OrnithooQuiz" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+        $imageBas = '<img src="/assets/img/email-bas.jpg" 
+            alt="Ornithoquiz" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $conclusion ="<p>Bonjour . Votre compte  a été créé . </p> 
+        <p>Merci pour votre confiance . Vous pouvez vous connecter via ce lien et jouer à un quiz, identifier un oiseau et parcourir la bibliothèque des oiseaux .  </p>
+        <p>OrnithoQuiz vous souhaite une bonne journée. </p> ";
+        
+        $message = $imageHaut . $conclusion . $bouton. $imageBas;
+        $this->mailService->sendEmail($email, $titre, $message);
 
         $successMessage = "Votre compte a été créé avec succès.";
         header('Location: /login?success=' . urlencode($successMessage));
