@@ -49,6 +49,7 @@ main{
     padding-top: 1rem;
     margin-bottom: 14rem;
     border: 1px solid var(--cream);
+    opacity: 0.8;
 }
 .form-container input{
     width: 55%;
@@ -66,7 +67,7 @@ main{
     display: block;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--mist);
+    color: var(--cream);
     border: 1px solid var(--mist);
     border-radius: 5px;
     padding: 0.5rem 1rem;
@@ -89,6 +90,7 @@ main{
     padding-bottom: 6rem;
     padding-top: 1rem;
     margin-bottom: 14rem;
+    opacity: 0.8;
 }
 
 .donnees-container{
@@ -105,7 +107,7 @@ main{
     display: block;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--mist);
+    color: var(--cream);
     border: 1px solid var(--mist);
     border-radius: 5px;
     padding: 0.5rem 1rem;

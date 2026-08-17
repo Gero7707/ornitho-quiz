@@ -132,6 +132,7 @@ a   { text-decoration: none; color: inherit; }
     border-radius: 8px;
     border: 1px solid var(--cream);
     right: 10px;
+    opacity: 0.8;
 }
 
 /* Anime le burger en croix */
@@ -850,6 +851,7 @@ footer .logo{
 
     .main-a-propos{
         background-image: url('/assets/img/ssBois/desk-sous-bois3.png');
+        background-size:cover;
         padding: 7rem;
     }
 
