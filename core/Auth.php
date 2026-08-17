@@ -15,6 +15,32 @@ class Auth{
     // À appeler en première ligne de chaque méthode controller protégée
     // ============================================================
 
+    private const INACTIVITY_LIMIT = 900;   // 15 min — poste non maîtrisé
+
+/**
+     * Expiration de session par inactivité (défense applicative garantie,
+     * là où gc_maxlifetime n'offre qu'un nettoyage probabiliste).
+     * Appelée par checkAuth/checkAdmin/checkEmploye une fois la connexion confirmée.
+     */
+    private static function enforceInactivityTimeout(): void {
+        // Première requête authentifiée : on pose le marqueur, rien à expirer encore
+        if (!isset($_SESSION['last_activity'])) {
+            $_SESSION['last_activity'] = time();
+            return;
+        }
+        $limite =self::INACTIVITY_LIMIT ;
+        
+        // Inactif depuis plus que la limite → session invalidée, retour au login
+        if (time() - $_SESSION['last_activity'] > $limite) {
+            session_unset();
+            session_destroy();
+            header('location: /login');
+            exit();
+        }
+
+        // Requête valide → on repousse l'échéance
+        $_SESSION['last_activity'] = time();
+    }
     /**
      * Vérifie qu'un utilisateur est connecté
      * Redirige vers /auth/login si la session est absente
@@ -25,9 +51,9 @@ class Auth{
             header('location: /login');
             exit();
         }
+        self::enforceInactivityTimeout();
     }
 
-    
 
     // ============================================================
     // PROTECTION CSRF (Cross-Site Request Forgery)
@@ -42,14 +68,14 @@ class Auth{
      * En cas d'échec : redirige vers l'URL $retour fournie par le controller 
      * À appeler en première ligne de chaque bloc POST
      */
-    public static function verifyCsrfToken(string $retour = '/'): void {
+    public static function verifyCsrfToken(): void {
         if (
             !isset($_POST['csrf_token']) ||
             !isset($_SESSION['csrf_token']) ||
             !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
         ) {
             $error = "Votre session a expiré ou le formulaire a été soumis plusieurs fois. Veuillez réessayer.";
-            header('Location: ' . $retour . '?error=' . urlencode($error));
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . '?error=' . urlencode($error));
             exit();
         }
     }

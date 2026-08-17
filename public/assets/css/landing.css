@@ -127,6 +127,12 @@ a   { text-decoration: none; color: inherit; }
 /* Ouvre le menu quand coché */
 .burger-toggle:checked ~ .nav-links {
     display: flex;
+    background-color: var(--fern);
+    width: 50%;
+    border-radius: 8px;
+    border: 1px solid var(--cream);
+    right: 10px;
+    opacity: 0.8;
 }
 
 /* Anime le burger en croix */
@@ -832,6 +838,23 @@ footer .logo{
         width: 100%;
     }
 
+    .about{
+        background-color: var(--fern);
+        width: 90%;
+        padding: 2rem 7rem 2rem 7rem;
+        border: 1px solid var(--cream);
+        color: #ffffff;
+        border-radius: 8px;
+        margin: auto;
+        opacity: 0.8;
+    }
+
+    .main-a-propos{
+        background-image: url('/assets/img/ssBois/desk-sous-bois3.png');
+        background-size:cover;
+        padding: 7rem;
+    }
+
 }
 
 @media (min-width: 1200px) {
@@ -850,5 +873,4 @@ footer .logo{
     .martin-section{
         height: 50rem;
     }
-
 }

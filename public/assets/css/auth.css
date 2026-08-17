@@ -48,6 +48,8 @@ main{
     padding-bottom: 6rem;
     padding-top: 1rem;
     margin-bottom: 14rem;
+    border: 1px solid var(--cream);
+    opacity: 0.8;
 }
 .form-container input{
     width: 55%;
@@ -65,7 +67,7 @@ main{
     display: block;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--mist);
+    color: var(--cream);
     border: 1px solid var(--mist);
     border-radius: 5px;
     padding: 0.5rem 1rem;
@@ -88,6 +90,7 @@ main{
     padding-bottom: 6rem;
     padding-top: 1rem;
     margin-bottom: 14rem;
+    opacity: 0.8;
 }
 
 .donnees-container{
@@ -104,7 +107,7 @@ main{
     display: block;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--mist);
+    color: var(--cream);
     border: 1px solid var(--mist);
     border-radius: 5px;
     padding: 0.5rem 1rem;
@@ -117,4 +120,63 @@ main{
     background-color: var(--mist);
     border: 1px solid var(--leaf);
     color: var(--leaf);
+}
+
+.btn-password{
+    width: 5%;
+    background-color: var(--leaf);
+    border: none;
+}
+
+.btn-password i{
+    color: var(--cream);
+    font-size: 1.5rem;
+}
+
+.btn-password i:hover{
+    scale: 1.2;
+}
+
+
+.hover-btn {
+    position: relative;
+}
+
+.hover-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--leaf);
+    color: var(--cream);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border:1px solid var(--cream);
+    display: none;
+    white-space: nowrap;
+}
+
+.hover-btn:hover::after {
+    display: block;
+}
+
+input[type=checkbox]{
+    width: 3%;
+}
+
+.annuler{
+    display: block;
+}
+
+.annuler:hover{
+    scale: 1.4;
+    color: var(--dawn);
+}
+
+@media (max-width: 640px){
+    .form-container-profil,.form-container{
+        width: 98%;
+        margin-top: 4rem;
+    }
 }

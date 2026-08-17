@@ -44,7 +44,7 @@
     font-size:   1rem;
     color:       var(--sage);
     letter-spacing: 0.04em;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     margin-left: 2rem;
     transition:  color var(--transition), background-color var(--transition);
 }
@@ -59,7 +59,7 @@
 /* EN-TÊTE ESPÈCE
 ------------------------------------------------ */
 .fiche-header { 
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     animation: apparition 0.9s ease-in;
     display: flex;
     flex-direction: column;
@@ -117,7 +117,7 @@
     overflow:      hidden;
     background:    var(--moss);
     margin-bottom: 2rem;
-    aspect-ratio:  4/3;
+    aspect-ratio:  4/2.8;
 }
 
 .carousel-track {
@@ -269,7 +269,7 @@
     width:         100%;
     border-radius: var(--radius-card);
     object-fit:    cover;
-    aspect-ratio:  4/3;
+    aspect-ratio:  4/2.8;
     margin-bottom: 2rem;
 }
 
@@ -453,7 +453,7 @@
     height: 90vh;
     overflow-y: auto;
     scroll-behavior: smooth;
-    margin-top: 2rem;
+    margin-top: 3rem;
     
 }
 
@@ -606,10 +606,10 @@
         width: 50%;
     }
 
-    .fiche-back{
+    /* .fiche-back{
         margin-bottom: 1.5rem;
 
-    }
+    } */
 
     .fiche-description{
         font-size: 1.1rem;
@@ -631,6 +631,7 @@
         display: flex;
         justify-content: space-evenly;
         margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 
     .fond-liste-gauche{
@@ -665,9 +666,9 @@
         justify-content: space-between;
     }
 
-    .fiche-header{
+    /* .fiche-header{
         margin-bottom: 5rem;
-    }
+    } */
 
     .fiche-header > a .img-lien{
         border: 0.2px solid rgba(235, 241, 237);
