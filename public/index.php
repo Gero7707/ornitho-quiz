@@ -67,6 +67,7 @@ $router->add('GET', '/birdnet/match', 'BirdnetController', 'matchSpecies');
 // $router->add('POST','/quiz/:niveau','QuizController',  'repondre');
 // $router->add('GET', '/thematiques', 'ThematiqueController','index');
 
+$router->add('GET', '/register' , 'UserController', 'showRegister');
 $router->add('GET' , '/login' , 'UserController' , 'showLogin');
 $router->add('POST' , '/login' , 'UserController' , 'login');
 
