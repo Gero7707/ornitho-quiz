@@ -44,7 +44,7 @@ class UserModel{
     }
 
     public function updateProfil(array $data){
-        $stmt = $this->db->prepare("UPDATE utilisateur SET email = :email, pseudo = :pseudo WHERE utilisateur_id = :id ");
+        $stmt = $this->db->prepare("UPDATE utilisateur SET email = :email, pseudo = :pseudo WHERE id = :id ");
         $stmt->bindValue(':id', $data['id'] , PDO::PARAM_INT);
         $stmt->bindValue(':email', $data['email']  , PDO::PARAM_STR);
         $stmt->bindValue(':pseudo', $data['pseudo']  , PDO::PARAM_STR);
