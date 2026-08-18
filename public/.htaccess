@@ -1,4 +1,19 @@
+
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ index.php [L]
+
+
+Header always set X-Frame-Options "DENY"
+
+Header always set X-Content-Type-Options "nosniff"
+
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+Header always set Permissions-Policy "geolocation=(self), microphone=(self), camera=()"
+
+Header always set Content-Security-Policy "default-src 'self';style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net;script-src 'self' cdn.jsdelivr.net kit.fontawesome.com 'unsafe-eval' 'sha256-dpP33iAJmxqiRrCysj4TnWXVQ80rYHfDaktkzYK77f4=' 'sha256-daEdpEyAJIa8b2VkCqSKcw8PaExcB6Qro80XNes/sHA=';font-src 'self' fonts.gstatic.com ka-f.fontawesome.com;img-src 'self' upload.wikimedia.org;media-src 'self' https://pub-e9fb8fe16aab482282a887c2799f9c6a.r2.dev;connect-src 'self' cdn.jsdelivr.net ka-f.fontawesome.com https://pub-e9fb8fe16aab482282a887c2799f9c6a.r2.dev;"
+

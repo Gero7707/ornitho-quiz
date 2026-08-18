@@ -13,7 +13,7 @@ session_start([
     'gc_maxlifetime' => 1800      // Session expire après 30 min d'inactivité
 ]);
 
-require_once  __DIR__ . '/../core/Database.php';
+require_once __DIR__ . '/../core/Database.php';
 require_once __DIR__ . '/../core/Router.php';
 require_once __DIR__ . '/../core/Auth.php';
 require_once __DIR__ . '/../app/helpers/helpers.php';
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../app/controllers/SonController.php';
 require_once __DIR__ . '/../app/controllers/QuizController.php';
 require_once __DIR__ . '/../app/controllers/BirdnetController.php';
 require_once __DIR__ . '/../app/controllers/UserController.php';
-require_once __DIR__ . '/../app/controllers/passwordResetController.php';
+require_once __DIR__ . '/../app/controllers/PasswordResetController.php';
 
 // require_once __DIR__ . '/../app/controllers/ThematiqueController.php';
 
