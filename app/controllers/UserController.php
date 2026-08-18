@@ -167,11 +167,11 @@ class UserController{
                     </table>
                 </div>';
 
-        $imageHaut = '<img src="/assets/img/email-haut.jpg" 
+        $imageHaut = '<img src="https://ornitho-quiz.fr/assets/img/email-haut.jpg" 
             alt="OrnithooQuiz" 
             width="600" 
             style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
-        $imageBas = '<img src="/assets/img/email-bas.jpg" 
+        $imageBas = '<img src="https://ornitho-quiz.fr/assets/img/email-bas.jpg" 
             alt="Ornithoquiz" 
             width="600" 
             style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
