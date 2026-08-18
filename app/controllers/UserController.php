@@ -35,12 +35,12 @@ class UserController{
         $ip = $_SERVER['REMOTE_ADDR'];
         $attempts = $this->loginAttempts->getAttempts($ip);
         if(count($attempts) >= 5 ){
-            $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessayer ultérieurement !";
+            $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessayer ultérieurement!";
             header('location: /?error=' . urlencode($error));
             exit();
         }
 
-        $user =$this->users->findByInput($input);
+        $user = $this->users->findByInput($input);
 
         if($user && password_verify($_POST['password'], $user['mot_de_passe_hash'])){
             // Régénérer l'id de session contre le session fixation
@@ -167,7 +167,7 @@ class UserController{
                     </table>
                 </div>';
 
-        $imageHaut = '<img src="https://ornitho-quiz.fr/assets/img/email-haut.jpg" 
+        $imageHaut = '<img src="https://ornitho-quiz.fr/assets/img/email-haut.jpg"
             alt="OrnithooQuiz" 
             width="600" 
             style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
@@ -186,5 +186,80 @@ class UserController{
         $successMessage = "Votre compte a été créé avec succès.";
         header('Location: /login?success=' . urlencode($successMessage));
         exit();
+    }
+
+
+    public function showUpdateProfil(){
+        Auth::checkAuth();
+        $id = $_SESSION['utilisateur_id'];
+        $user = $this->users->findById($id);
+        if (!$user) {
+            Auth::destroySession();
+            header('Location: /login?error=' . urlencode('Session expirée, veuillez vous reconnecter.'));
+            exit;
+        }
+        require_once __DIR__ . '/../views/auth/editProfil.php';
+    }
+
+    public function editProfil(){
+        Auth::checkAuth();
+        Auth::verifyCsrfToken();
+        $id = $_SESSION['utilisateur_id'];
+        $sessionEmail = $_SESSION['email'];
+        $user = $this->users->findById($id);
+        if($user && password_verify($_POST['password'] ?? '', $user['mot_de_passe_hash'])){
+            $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
+            if (!$email ){
+                $error = "L'adresse email n'est pas valide !";
+                header('Location: /modif-profil?error=' . urlencode($error));
+                exit();
+            }
+
+            $pseudo = trim($_POST['pseudo'] ?? '');
+            if (empty($pseudo)) {
+                $error = "Vous devez remplir tous les champs du formulaire !";
+                header('Location: /modif-profil?error=' . urlencode($error));
+                exit();
+            }
+
+            if($sessionEmail !== $email){
+                $emailExists = $this->users->findByEmail($email);
+                if($emailExists){
+                    $error = "Cet email est déjà utilisé !";
+                    header('Location: /modif-profil?error=' . urlencode($error));
+                    exit();
+                }
+            }
+
+            if ($pseudo !== $_SESSION['pseudo']) {
+                if ($this->users->findByPseudo($pseudo)) {
+                    $error = "Ce pseudo existe déjà, veuillez en choisir un autre.";
+                    header('Location: /modif-profil?error=' . urlencode($error));
+                    exit();
+                }
+            }
+        
+            // Régénérer l'id de session contre le session fixation
+            session_regenerate_id(true);
+
+            $data = [
+                'id' => $id,
+                'email'    => $email,
+                'pseudo'   => $pseudo
+            ];
+
+            $this->users->updateProfil($data);
+
+            $_SESSION['email']  = $email;
+            $_SESSION['pseudo'] = $pseudo;
+
+            $successMessage = "Votre profil a été mis à jour avec succés.";
+            header('location: /profil?success=' . urlencode($successMessage));
+            exit();
+        }else{
+            $error = "Le mot de passe est incorect. veuillez recommencer ";
+            header('Location: /modif-profil?error=' . urlencode($error));
+            exit();
+        }
     }
 }

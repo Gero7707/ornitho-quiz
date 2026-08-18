@@ -15,7 +15,7 @@ class Router {
     public function dispatch($url) {
         $httpMethod = $_SERVER['REQUEST_METHOD'];
         $url = parse_url($url, PHP_URL_PATH);
-        $url = rtrim($url ?? '', '/') ?: '/';
+        $url = rtrim($url, '/') ?: '/';
 
         foreach ($this->routes as $route) {
             $pattern = preg_replace('/:([a-z]+)/', '([^/]+)', $route['url']);

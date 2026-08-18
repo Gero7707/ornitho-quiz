@@ -6,7 +6,15 @@ require_once __DIR__ . '/../layout/nav.php';
 ?>
 
 <main>
+    
     <div class="form-container-profil ">
+        <?php if ($_GET['error'] ?? null): ?>
+            <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+        <?php endif ?>
+        <?php if ($_GET['success'] ?? null): ?>
+            <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+        <?php endif ?>
+        <p class="error-message mt-1 text-center"></p><br>
         <h1 class="text-center mt-5">Profil</h1>
         <div class="donnees-container">
             <h2 class="text-center mt-4">Données utilisatuer</h2>
@@ -18,15 +26,6 @@ require_once __DIR__ . '/../layout/nav.php';
             <h2 class="text-center">Stats quizs</h2>
         </div>
 
-        
-        
-        <?php if ($_GET['error'] ?? null): ?>
-            <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
-        <?php endif ?>
-        <?php if ($_GET['success'] ?? null): ?>
-            <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
-        <?php endif ?>
-        <p class="error-message mt-1 text-center"></p><br>
     </div>
 </main>
 
