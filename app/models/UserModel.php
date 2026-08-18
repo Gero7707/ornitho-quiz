@@ -50,4 +50,33 @@ class UserModel{
         $stmt->bindValue(':pseudo', $data['pseudo']  , PDO::PARAM_STR);
         return $stmt->execute();
     }
+
+    public function saveResetToken(string $email,string $token,string $expires){
+        $stmt = $this->db->prepare("UPDATE utilisateur SET reset_token = :reset_token  , reset_token_expires_at = :reset_token_expires_at WHERE email = :email");
+        $stmt->bindValue(':reset_token', $token , PDO::PARAM_STR);
+        $stmt->bindValue(':reset_token_expires_at' , $expires , PDO::PARAM_STR);
+        $stmt->bindValue(':email' , $email, PDO::PARAM_STR);
+        return $stmt->execute();
+    }
+
+    public function findByResetToken(string $token){
+        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE reset_token = :reset_token");
+        $stmt->bindValue(':reset_token', $token , PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updatePassword(int $id, string $hashedPassword){
+        $stmt =$this->db->prepare("UPDATE  utilisateur  SET mot_de_passe_hash = :mot_de_passe_hash WHERE id = :id");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
+        $stmt->bindValue(':mot_de_passe_hash' , $hashedPassword , PDO::PARAM_STR);
+        return $stmt->execute();
+    }
+    
+    public function clearResetToken(int $id){
+        $stmt = $this->db->prepare("UPDATE utilisateur SET reset_token = null , reset_token_expires_at = null WHERE id = :id");
+        $stmt-> bindValue(':id' , $id , PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
 }

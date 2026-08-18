@@ -23,6 +23,7 @@ require_once __DIR__ . '/../app/controllers/SonController.php';
 require_once __DIR__ . '/../app/controllers/QuizController.php';
 require_once __DIR__ . '/../app/controllers/BirdnetController.php';
 require_once __DIR__ . '/../app/controllers/UserController.php';
+require_once __DIR__ . '/../app/controllers/passwordResetController.php';
 
 // require_once __DIR__ . '/../app/controllers/ThematiqueController.php';
 
@@ -78,6 +79,10 @@ $router->add('POST', '/logout', 'UserController', 'logOut');
 $router->add('GET' , '/profil' , 'UserController' , 'showProfil');
 $router->add('GET', '/modif-profil', 'UserController', 'showUpdateProfil');
 $router->add('POST', '/modif-profil', 'UserController', 'editProfil');
+$router->add('GET', '/forgot-password', 'PasswordResetController', 'forgotPasswordForm');
+$router->add('POST', '/forgot-password', 'PasswordResetController', 'forgotPassword');
+$router->add('GET', '/reset-password', 'PasswordResetController', 'resetPasswordForm');
+$router->add('POST', '/reset-password', 'PasswordResetController', 'resetPassword');
 
 
 $router->add('GET' , '/a-propos' , 'HomeController' , 'aPropos');
