@@ -19,6 +19,7 @@ require_once __DIR__ . '/../layout/nav.php';
             <input type="password" class="form-control mb-3" name="password" id="password">
             <button type="submit" class="mt-5 btn-form">Se connecter</button>
         </form>
+        <a href="/forgot-password" class="mdp-oublie text-center  mt-1">Mot de passe oublié </a>
         <p class="text-center mt-5">Pour vous connecter vous devez avoir un compte chez nous .</p>
         <a href="/register" class="btn-form text-center">Créer un compte</a>
         <?php if ($_GET['error'] ?? null): ?>

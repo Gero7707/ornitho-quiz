@@ -165,11 +165,11 @@ input[type=checkbox]{
     width: 3%;
 }
 
-.annuler{
+.annuler, .mdp-oublie{
     display: block;
 }
 
-.annuler:hover{
+.annuler:hover, .mdp-oublie:hover{
     scale: 1.4;
     color: var(--dawn);
 }
