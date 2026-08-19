@@ -7,21 +7,21 @@ require_once __DIR__ . '/../layout/header.php';
     <div class="carte-liste">
         <div class="fond-liste-gauche"></div>
         <div class="liste">
-            <form method="GET" action="/oiseaux" class="form-liste">
+            <form method="GET" action="/oiseaux" class="form-liste" x-data="{}">
                 <input type="text" 
                     name="recherche" 
                     placeholder="Rechercher un oiseau..." 
                     value="<?= htmlspecialchars($_GET['recherche'] ?? '') ?>">
                 <button type="submit">Rechercher</button>
                 <label for="lettre">Recherche alphabétique :</label>
-                <select name="lettre" id="lettre" onchange="this.form.submit()">
+                <select name="lettre" id="lettre" @change="$event.target.form.submit()">
                     <option value="">-- Choisir une lettre --</option>
                     <?php foreach (range('A', 'Z') as $lettre): ?>
                         <option value="<?= $lettre ?>"><?= $lettre ?></option>
                     <?php endforeach; ?>
                 </select>
                 <label for="region">Filtrer par région :</label>
-                <select name="region" onchange="this.form.submit()">
+                <select name="region" @change="$event.target.form.submit()">
                     <option value="">Toutes les régions</option>
                     <option value="metropole" <?= ($_GET['region'] ?? '') === 'metropole' ? 'selected' : '' ?>>France métropolitaine</option>
                     <option value="guyane" <?= ($_GET['region'] ?? '') === 'guyane' ? 'selected' : '' ?>>Guyane</option>
