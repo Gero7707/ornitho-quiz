@@ -24,9 +24,22 @@ services:
       MAILTRAP_PORT: ${MAILTRAP_PORT}
       MAILTRAP_USERNAME: ${MAILTRAP_USERNAME}
       MAILTRAP_PASSWORD: ${MAILTRAP_PASSWORD}
+      MONGO_HOST: mongodb
+      MONGO_PORT: 27017
+      MONGO_DB: ${MONGO_DB}
 
     depends_on:
       - mysql 
+      - mongodb
+
+  mongodb:
+    image: mongo:7
+    container_name: ornitho-quiz-db
+    restart: always
+    ports:
+      - "27018:27017"   # 27018 côté hôte pour éviter conflit avec MongoDB Windows
+    volumes:
+      - mongodb_data:/data/db
 
 
   mysql:
@@ -45,4 +58,5 @@ services:
 
 volumes:
   db_data:
+  mongodb_data:
     

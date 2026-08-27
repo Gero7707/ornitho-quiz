@@ -16,8 +16,7 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-// Autoloader Composer — charge PHPMailer et toutes les dépendances installées via composer require
-require_once __DIR__ . '/../../vendor/autoload.php';
+
 
 class MailService{
 

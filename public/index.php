@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 // ============================================================
 // CONFIGURATION DE LA SESSION
 // Doit être appelé avant tout output et avant d'utiliser $_SESSION
