@@ -21,6 +21,7 @@ require_once __DIR__ . '/../layout/nav.php';
             <p class="text-center"><strong>Pseudo</strong> : <?= htmlspecialchars($user['pseudo']) ?></p>
             <p class="text-center"><strong>Email</strong> : <?= htmlspecialchars($user['email']) ?></p>
             <a href="/modif-profil" class="btn-form-profil text-center">Modifier</a>
+            <a href="/supprimer-profil" class="btn-form-profil text-center mt-3">Supprimer profil</a>
         </div>
         <div class="stats-container mt-5">
             <h2 class="text-center">Stats quizs</h2>

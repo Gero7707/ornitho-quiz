@@ -11,8 +11,8 @@
     
     <div class="nav-links">
         <?php if (getenv('APP_ENV') === 'dev'): ?>
-            <button popovertarget="my-popover">Open Var dump</button>
-            <div popover id="my-popover"><?php var_dump(getenv('MAILTRAP_HOST'), getenv('MAILTRAP_PORT')); ?></div>
+            <!-- <button popovertarget="my-popover">Open Var dump</button>
+            <div popover id="my-popover"><?php var_dump(getenv('MAILTRAP_HOST'), getenv('MAILTRAP_PORT')); ?></div> -->
         <?php endif; ?>
         <a href="/">Accueil</a>
         <a href="/a-propos">À propos</a>

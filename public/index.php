@@ -79,6 +79,8 @@ $router->add('POST', '/logout', 'UserController', 'logOut');
 $router->add('GET' , '/profil' , 'UserController' , 'showProfil');
 $router->add('GET', '/modif-profil', 'UserController', 'showUpdateProfil');
 $router->add('POST', '/modif-profil', 'UserController', 'editProfil');
+$router->add('GET', '/supprimer-profil', 'UserController', 'showDeleteProfile');
+$router->add('POST', '/supprimer-profil', 'UserController', 'deleteProfile');
 $router->add('GET', '/forgot-password', 'PasswordResetController', 'forgotPasswordForm');
 $router->add('POST', '/forgot-password', 'PasswordResetController', 'forgotPassword');
 $router->add('GET', '/reset-password', 'PasswordResetController', 'resetPasswordForm');
