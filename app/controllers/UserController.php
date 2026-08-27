@@ -263,5 +263,54 @@ class UserController{
         }
     }
 
-    
+    public function showDeleteProfile(){
+        Auth::checkAuth();
+        $id = $_SESSION['utilisateur_id'];
+        $user = $this->users->findById($id);
+        if (!$user) {
+            Auth::destroySession();
+            header('Location: /login?error=' . urlencode('Session expirée, veuillez vous reconnecter.'));
+            exit;
+        }
+        require_once __DIR__ . '/../views/auth/deleteProfile.php';
+    }
+    public function deleteProfile(){
+        // TODO: supprimer stats NoSQL avant
+        Auth::checkAuth();
+        Auth::verifyCsrfToken();
+        $id = $_SESSION['utilisateur_id'];
+        $sessionEmail = $_SESSION['email'];
+        $user = $this->users->findById($id);
+
+        if (!$user) {
+            Auth::destroySession();
+            header('Location: /login?error=' . urlencode('Session expirée, veuillez vous reconnecter.'));
+            exit;
+        }
+
+        if(password_verify($_POST['password'] ?? '', $user['mot_de_passe_hash'])){
+            $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
+            if (!$email ){
+                $error = "L'adresse email n'est pas valide !";
+                header('Location: /supprimer-profil?error=' . urlencode($error));
+                exit();
+            }
+
+            if($sessionEmail !== $email){
+                $error = "L'email saisi ne correspond pas à celui de votre compte. Veuillez le retaper pour confirmer la suppression.";
+                header('Location: /supprimer-profil?error=' . urlencode($error));
+                exit();
+            }
+
+            $this->users->supprimerProfil($id);
+            Auth::destroySession();
+            $successMessage = "Votre profil a été supprimé avec succès.";
+            header('Location: /?success=' . urlencode($successMessage));
+            exit();
+        }else{
+            $error = "Une erreur est survenue. Veuillez réessayer plus tard ";
+            header('Location: /supprimer-profil?error=' . urlencode($error));
+            exit();
+        }
+    }
 }

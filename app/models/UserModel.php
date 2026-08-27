@@ -75,8 +75,13 @@ class UserModel{
     
     public function clearResetToken(int $id){
         $stmt = $this->db->prepare("UPDATE utilisateur SET reset_token = null , reset_token_expires_at = null WHERE id = :id");
-        $stmt-> bindValue(':id' , $id , PDO::PARAM_INT);
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
         return $stmt->execute();
     }
 
+    public function supprimerProfil(int $id){
+        $stmt = $this->db->prepare("DELETE FROM utilisateur WHERE id = :id");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }

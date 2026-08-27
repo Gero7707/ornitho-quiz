@@ -1,5 +1,10 @@
 const btnPassword = document.querySelectorAll('.btn-password');
 
+const btnSupprimerCompte = document.getElementById('btnValiderSuppression');
+const password = document.getElementById('password');
+const email = document.getElementById('suppimerCompte');
+const errorMessage = document.querySelector('.error-message');
+
 btnPassword.forEach(btn =>{
     btn.addEventListener('click' , () =>{
         const input = document.getElementById(btn.dataset.target);
@@ -14,3 +19,4 @@ btnPassword.forEach(btn =>{
         }
     });
 });
+

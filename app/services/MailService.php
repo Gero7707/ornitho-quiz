@@ -59,7 +59,7 @@ class MailService{
 
         // Expéditeur affiché dans le client mail du destinataire
         // À personnaliser selon le projet
-        $this->mail->setFrom('noreply@monapp.com', 'MonApp');
+        $this->mail->setFrom('noreply@monapp.com', 'OrnithoQuiz');
 
         // Destinataire
         $this->mail->addAddress($to);
