@@ -22,4 +22,15 @@ class StatModel {
             ['upsert' => true]
         );
     }
+
+    public function findByUtilisateurId(int $utilisateurId): ?array{
+        return $this->collection->findOne(
+            ['utilisateur_id' => $utilisateurId],
+            ['typeMap' => [
+                'root'     => 'array',
+                'document' => 'array',
+                'array'    => 'array',
+            ]]
+        );
+    }
 }
