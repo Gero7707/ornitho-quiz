@@ -23,15 +23,32 @@ require_once __DIR__ . '/../layout/nav.php';
             <a href="/modif-profil" class="btn-form-profil text-center">Modifier</a>
             <a href="/supprimer-profil" class="btn-form-profil text-center mt-3">Supprimer profil</a>
         </div>
-        <div class="stats-container mt-5">
-            <h2 class="text-center">Stats quizs</h2>
+        <?php if ($aDesStats): ?>
+            <div class="stats-container mt-5">
+                <h2 class="text-center">Stats quizs</h2>
+                <p class="text-center">Nombre total : <?= $totalQuestions ?></p>
+                <p class="text-center">Bonnes réponses : <?= $totalBonnesReponses ?></p>
+                <p class="text-center">Pourcentage total : <?= $pourcentageGlobal ?> % de réussite</p>
+            </div>
+        <?php else: ?>
+            <div class="stats-container mt-5">
+                <h2 class="text-center">Stats quizs</h2>
+                <p class="text-center">Aucune statistique pour l'instant. Jouez un quiz pour voir vos résultats !</p>
+            </div>
+        <?php endif; ?>
+        <div class="conteneur-graphique mt-3">
+            <canvas id="graphiqueQuiz"></canvas>
         </div>
-
     </div>
 </main>
 
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    window.STATS_PAR_JEU = <?php echo json_encode($statsParJeu); ?>;
+</script>
 
 <?php 
+$loadScriptJs = 'profil-chart.js';
+require_once __DIR__ . '/../layout/importJs.php';
 require_once __DIR__ . '/../layout/footer.php';
 ?>

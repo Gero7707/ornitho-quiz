@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../models/UserModel.php';
 require_once __DIR__ . '/../services/MailService.php';
 require_once __DIR__ . '/../models/LoginAttemptsModel.php';
+require_once __DIR__ . '/../models/StatModel.php';
 
 
 class UserController{
@@ -11,10 +12,13 @@ class UserController{
 
     private MailService $mailService;
 
+    private StatModel $stats;
+
     public function __construct(){
         $this->users = new UserModel();
         $this->loginAttempts = new LoginAttemptModel();
         $this->mailService = new MailService();
+        $this->stats= new StatModel();
     }
 
     public function showLogin(){
@@ -78,15 +82,51 @@ class UserController{
         exit();
     }
 
+    private const JEUX_DISPONIBLES = ['jeu1', 'jeu2', 'jeu3', 'jeu4'];
+
     public function showProfil(){
         Auth::checkAuth();
         $id = $_SESSION['utilisateur_id'];
         $user = $this->users->findById($id);
+
         if (!$user) {
             Auth::destroySession();
             header('Location: /login?error=' . urlencode('Session expirée, veuillez vous reconnecter.'));
             exit;
         }
+
+        $stats = $this->stats->findByUtilisateurId($id) ?? [];
+
+        $statsParJeu = [];
+
+        foreach (self::JEUX_DISPONIBLES as $jeu) {
+            $donneesJeu = $stats['stats_par_region']['metropole']['jeux'][$jeu] ?? null;
+
+            $bonnesReponses = $donneesJeu['bonnes_reponses'] ?? 0;
+            $totalQuestionsJeu = $donneesJeu['total_questions'] ?? 0;
+
+            $pourcentage = ($totalQuestionsJeu > 0)
+                ? round(($bonnesReponses / $totalQuestionsJeu) * 100)
+                : 0;
+
+            $statsParJeu[$jeu] = [
+                'pourcentage'      => $pourcentage,
+                'bonnes_reponses'  => $bonnesReponses,
+                'total_questions'  => $totalQuestionsJeu,
+            ];
+        }
+        
+        $global = $stats['stats_par_region']['metropole']['global'] ?? null;
+        $totalBonnesReponses = $global['bonnes_reponses'] ?? 0;
+        $totalQuestions = $global['total_questions'] ?? 0;
+
+        
+        $pourcentageGlobal = ($global && $totalQuestions > 0)
+            ? round(($totalBonnesReponses / $totalQuestions) * 100)
+            : 0;
+
+        $aDesStats = $global !== null && $totalQuestions > 0;
+
         require_once __DIR__ . '/../views/auth/profil.php';
     }
 

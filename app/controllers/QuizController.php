@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../models/Oiseau.php';
 require_once __DIR__ . '/../models/Son.php';
-
+require_once __DIR__ . '/../models/StatModel.php';
 
 
 
@@ -85,6 +85,20 @@ class QuizController {
     public function fin(){
         $score = $_SESSION['score'] ?? 0;
         $nbQuestions = $_SESSION['nb_questions'] ?? 0;
+        $jeu = $_SESSION['jeu'] ?? null;
+
+        if (isset($_SESSION['utilisateur_id']) && $jeu !== null) {
+            $statModel = new StatModel();
+            $statModel->enregistrerQuiz($_SESSION['utilisateur_id'], $jeu, $score, $nbQuestions);
+
+            unset(
+                $_SESSION['score'],
+                $_SESSION['nb_questions'],
+                $_SESSION['question_actuelle'],
+                $_SESSION['jeu']
+            );
+        }
+
         include __DIR__ . '/../views/quiz/finQuiz.php';
     }
 
