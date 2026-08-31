@@ -37,15 +37,12 @@ require_once __DIR__ . '/../layout/nav.php';
             </div>
         <?php endif; ?>
         <div class="conteneur-graphique mt-3">
-            <canvas id="graphiqueQuiz"></canvas>
+            <canvas id="graphiqueQuiz" data-stats='<?= htmlspecialchars(json_encode($statsParJeu), ENT_QUOTES, "UTF-8") ?>'></canvas>
         </div>
     </div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    window.STATS_PAR_JEU = <?php echo json_encode($statsParJeu); ?>;
-</script>
 
 <?php 
 $loadScriptJs = 'profil-chart.js';

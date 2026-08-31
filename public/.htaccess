@@ -11,7 +11,6 @@ Header always set X-Content-Type-Options "nosniff"
 
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 
 Header always set Permissions-Policy "geolocation=(self), microphone=(self), camera=()"
 
