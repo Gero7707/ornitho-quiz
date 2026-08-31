@@ -1,8 +1,6 @@
 {
     "require": {
-        "phpmailer/phpmailer": "^7.1"
-    },
-    "require-dev": {
+        "phpmailer/phpmailer": "^7.1",
         "mongodb/mongodb": "^2.1"
     }
 }
