@@ -303,9 +303,5 @@
         }
     ],
     "dev": true,
-    "dev-package-names": [
-        "mongodb/mongodb",
-        "psr/log",
-        "symfony/polyfill-php85"
-    ]
+    "dev-package-names": []
 }
