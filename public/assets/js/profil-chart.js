@@ -1,4 +1,5 @@
 const canvas = document.getElementById('graphiqueQuiz');
+const statsParJeu = JSON.parse(canvas.dataset.stats);
 const nomsJeux = {
     jeu1: 'Trouver l\'intrus',
     jeu2: 'Chant ou cris?',
@@ -6,8 +7,8 @@ const nomsJeux = {
     jeu4: 'Nom de l\'oiseau'
 };
 
-const labels = Object.keys(window.STATS_PAR_JEU).map(jeu => nomsJeux[jeu]);
-const data   =  Object.values(window.STATS_PAR_JEU).map(item => item.pourcentage);
+const labels = Object.keys(statsParJeu).map(jeu => nomsJeux[jeu]);
+const data   =  Object.values(statsParJeu).map(item => item.pourcentage);
 
 const estMobile = window.innerWidth < 768;
 const axeValeurs = estMobile ? 'x' : 'y';
