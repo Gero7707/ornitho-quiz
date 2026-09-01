@@ -2,3 +2,5 @@
 divers/
 public/audio/
 vendor/
+storage/logs/*
+!storage/logs/.gitkeep

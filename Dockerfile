@@ -5,6 +5,8 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 RUN pecl install mongodb && docker-php-ext-enable mongodb
 
+COPY php-error-logging.ini /usr/local/etc/php/conf.d/
+
 
 RUN a2enmod rewrite
 
