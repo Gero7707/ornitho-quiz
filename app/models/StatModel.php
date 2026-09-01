@@ -33,4 +33,9 @@ class StatModel {
             ]]
         );
     }
+
+    public function supprimerStats(int $id): bool{
+        $deleteResult = $this->collection->deleteOne(['utilisateur_id' => $id]);
+        return $deleteResult->getDeletedCount() > 0;
+    }
 }
