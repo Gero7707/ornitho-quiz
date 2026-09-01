@@ -27,7 +27,6 @@ require_once __DIR__ . '/../layout/header.php';
                         <select name="region" class="select-jeux">
                             <option value="">Tous les oiseaux</option>
                             <option value="metropole">France métropolitaine</option>
-                            <option value="guyane">Guyane</option>
                         </select>
                     </div>
                     <button type="submit" class="bouton-jouer">Jouer</button>
@@ -50,7 +49,6 @@ require_once __DIR__ . '/../layout/header.php';
                         <select name="region" class="select-jeux">
                             <option value="">Tous les oiseaux</option>
                             <option value="metropole">France métropolitaine</option>
-                            <option value="guyane">Guyane</option>
                         </select>
                     </div>
                     <button type="submit" class="bouton-jouer">Jouer</button>
@@ -73,7 +71,6 @@ require_once __DIR__ . '/../layout/header.php';
                         <select name="region" class="select-jeux">
                             <option value="">Tous les oiseaux</option>
                             <option value="metropole">France métropolitaine</option>
-                            <option value="guyane">Guyane</option>
                         </select>
                     </div>
                     <button type="submit" class="bouton-jouer">Jouer</button>
@@ -96,7 +93,6 @@ require_once __DIR__ . '/../layout/header.php';
                         <select name="region" class="select-jeux">
                             <option value="">Tous les oiseaux</option>
                             <option value="metropole">France métropolitaine</option>
-                            <option value="guyane">Guyane</option>
                         </select>
                     </div>
                     <button type="submit" class="bouton-jouer">Jouer</button>

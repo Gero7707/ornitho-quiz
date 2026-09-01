@@ -1,6 +1,6 @@
 main{
     background-image: url('/assets/img/ssBois/desk-sous-bois3.png');
-    background-size: cover;
+    background-size: fill;
     padding: 2rem;
 }
 
