@@ -315,7 +315,6 @@ class UserController{
         require_once __DIR__ . '/../views/auth/deleteProfile.php';
     }
     public function deleteProfile(){
-        // TODO: supprimer stats NoSQL avant
         Auth::checkAuth();
         Auth::verifyCsrfToken();
         $id = $_SESSION['utilisateur_id'];
@@ -341,7 +340,7 @@ class UserController{
                 header('Location: /supprimer-profil?error=' . urlencode($error));
                 exit();
             }
-
+            $this->stats->supprimerStats($id);
             $this->users->supprimerProfil($id);
             Auth::destroySession();
             $successMessage = "Votre profil a été supprimé avec succès.";
