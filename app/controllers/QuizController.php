@@ -237,12 +237,14 @@ class QuizController {
         $vraiIntrus = $oiseauModel->getById($_SESSION['oiseau_id']);
 
         $son = $sonModel->getById($sonId);
-
-        foreach(explode(',', $sonsIds) as $id){
-            $s = $sonModel->getById($id);
-            $s['nom_commun'] = $oiseauModel->getById($s['oiseau_id'])['nom_commun'];
-            $quatreSons[] = $s;
+        if($jeu === 'jeu1'){
+            foreach(explode(',', $sonsIds) as $id){
+                $s = $sonModel->getById($id);
+                $s['nom_commun'] = $oiseauModel->getById($s['oiseau_id'])['nom_commun'];
+                $quatreSons[] = $s;
+            }
         }
+        
 
         if($jeu === 'jeu4'){
             $troisOiseaux = [];
