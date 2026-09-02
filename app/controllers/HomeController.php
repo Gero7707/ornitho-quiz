@@ -20,4 +20,12 @@ class HomeController
     public function aPropos(): void{
         require_once __DIR__ . '/../views/about.php';
     }
+
+    public function mentionsLegales(){
+        require_once __DIR__ . '/../views/mentions-legales.php';
+    }
+
+    public function politiqueConfidentialite(){
+        require_once __DIR__ . '/../views/politique-confidentialite.php';
+    }
 }

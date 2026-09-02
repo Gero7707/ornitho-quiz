@@ -750,6 +750,12 @@ footer .logo{
     align-items: center;
     flex-direction: column;
 }
+
+.footer-infos a:hover{
+    color: var(--gold);
+}
+
+
 /* ANIMATIONS D'ENTRÉE
 ------------------------------------------------ */
 .fade-up {
@@ -765,8 +771,21 @@ footer .logo{
 .delay-3 { animation-delay: 0.40s; }
 .delay-4 { animation-delay: 0.55s; }
 
+
+
 /* DESKTOP — Media queries
 ------------------------------------------------ */
+@media (min-width: 300PX){
+    .about, .mentions-legales, .politique-confidentialite{
+        margin-top: 3rem;
+        padding: 2rem;
+    }
+
+    .politique-confidentialite table, .politique-confidentialite table tr, .politique-confidentialite table td , .politique-confidentialite table th{
+        border: 1px solid var(--cream);
+        padding: 0.5rem;
+    }
+}
 @media (min-width: 640px) {
     .feature-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-actions { 
@@ -839,7 +858,7 @@ footer .logo{
         width: 100%;
     }
 
-    .about{
+    .about, .mentions-legales, .politique-confidentialite{
         background-color: var(--fern);
         width: 90%;
         padding: 2rem 7rem 2rem 7rem;
@@ -850,7 +869,7 @@ footer .logo{
         opacity: 0.8;
     }
 
-    .main-a-propos{
+    .main-a-propos, .main-mentions{
         background-image: url('/assets/img/ssBois/desk-sous-bois3.png');
         background-size:cover;
         padding: 7rem;
