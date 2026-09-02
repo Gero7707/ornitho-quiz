@@ -90,6 +90,7 @@ $router->add('POST', '/reset-password', 'PasswordResetController', 'resetPasswor
 
 
 $router->add('GET' , '/a-propos' , 'HomeController' , 'aPropos');
+$router->add('GET' , '/mentions-legales' , 'HomeController' , 'mentionsLegales');
 
 $url = strtok($_SERVER['REQUEST_URI'], '?');
 
