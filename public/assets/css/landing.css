@@ -751,7 +751,7 @@ footer .logo{
     flex-direction: column;
 }
 
-.footer-infos a:hover{
+.footer-infos a:hover, .politique-confidentialite a:hover{
     color: var(--gold);
 }
 
