@@ -11,7 +11,7 @@ require_once __DIR__ . '/../views/layout/nav.php';
         <p>
             Cette politique explique quelles données personnelles OrnithoQuizz collecte,
             pourquoi, et comment exercer vos droits. Elle complète les
-            <a href="/mentions-legales">mentions légales</a> et s'applique conformément au
+            <strong><a href="/mentions-legales">mentions légales</a></strong> et s'applique conformément au
             Règlement Général sur la Protection des Données (RGPD).
         </p>
 
@@ -56,6 +56,26 @@ require_once __DIR__ . '/../views/layout/nav.php';
         <p>
             Un visiteur non connecté peut utiliser les quiz sans qu'aucune de ces données ne
             soit créée ou conservée.
+        </p>
+
+        <h3>Fonctionnalité d'identification par le son (BirdNET)</h3>
+        <p>
+            La page <strong><a href="/identifier">Identifier un oiseau</a></strong> demande l'accès au
+            <strong>microphone</strong> et à la <strong>géolocalisation</strong> de votre
+            navigateur. Ces deux accès sont utilisés uniquement pour :
+        </p>
+        <ul>
+            <li>enregistrer un son afin de l'analyser (microphone) ;</li>
+            <li>affiner la reconnaissance d'espèces en filtrant celles présentes dans votre zone géographique (géolocalisation).</li>
+        </ul>
+        <p>
+            <strong>L'analyse audio est effectuée entièrement dans votre navigateur</strong>
+            (modèle d'intelligence artificielle TensorFlow.js exécuté localement).
+            <strong>Aucun enregistrement audio ni donnée de géolocalisation n'est envoyé,
+            transmis ou stocké sur nos serveurs ou ceux de nos prestataires.</strong> Vous
+            pouvez refuser ces accès : l'identification par enregistrement ne sera pas
+            disponible, mais l'import de fichier audio reste utilisable (la géolocalisation
+            étant alors simplement ignorée, sans filtrage géographique).
         </p>
 
         <h2>3. Base légale du traitement</h2>
@@ -116,21 +136,21 @@ require_once __DIR__ . '/../views/layout/nav.php';
         <ul>
             <li>
                 <strong>Droit d'accès et de rectification</strong> — consultables et
-                modifiables directement depuis votre page <a href="/profil">Profil</a>.
+                modifiables directement depuis votre page <strong><a href="/profil">Profil</a></strong>.
             </li>
             <li>
                 <strong>Droit à l'effacement</strong> — supprimez votre compte et l'ensemble
                 de vos données associées depuis la page
-                <a href="/supprimer-profil">Supprimer mon profil</a>.
+                <strong><a href="/supprimer-profil">Supprimer mon profil</a></strong>.
             </li>
             <li>
                 <strong>Droit d'opposition et de portabilité</strong> — exerçable en nous
-                contactant à [adresse email].
+                contactant à ornitho-quiz@outlook.fr.
             </li>
         </ul>
         <p>
             Vous disposez également du droit d'introduire une réclamation auprès de la CNIL
-            (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>)
+            (<strong><a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></strong>)
             si vous estimez que vos droits ne sont pas respectés.
         </p>
 
