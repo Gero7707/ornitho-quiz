@@ -869,7 +869,7 @@ footer .logo{
         opacity: 0.8;
     }
 
-    .main-a-propos, .main-mentions{
+    .main-a-propos, .main-mentions, .main-confidentialite{
         background-image: url('/assets/img/ssBois/desk-sous-bois3.png');
         background-size:cover;
         padding: 7rem;
