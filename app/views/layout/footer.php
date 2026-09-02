@@ -5,7 +5,8 @@
     </div>
     <div class="text-center footer-infos">
         <p class="logo">© VDG<img src="/assets/img/ssBois/Logo_blanc.png" alt="Logo blanc"> 2026 OrnithoQuizz - Tous droits réservés. </p>
-        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/mentions-legales">Mentions légales</a><br>
+        <a href="/politique-confidentialite">Politique de confidentialité</a>
         <p class="footer-tagline mt-2"><a href="mailto:ornitho-quiz@outlook.fr">ornitho-quiz@outlook.fr</a></p>
     </div>
 </footer>

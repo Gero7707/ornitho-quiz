@@ -754,6 +754,8 @@ footer .logo{
 .footer-infos a:hover{
     color: var(--gold);
 }
+
+
 /* ANIMATIONS D'ENTRÉE
 ------------------------------------------------ */
 .fade-up {
@@ -774,9 +776,14 @@ footer .logo{
 /* DESKTOP — Media queries
 ------------------------------------------------ */
 @media (min-width: 300PX){
-    .about, .mentions-legales{
+    .about, .mentions-legales, .politique-confidentialite{
         margin-top: 3rem;
         padding: 2rem;
+    }
+
+    .politique-confidentialite table, .politique-confidentialite table tr, .politique-confidentialite table td , .politique-confidentialite table th{
+        border: 1px solid var(--cream);
+        padding: 0.5rem;
     }
 }
 @media (min-width: 640px) {
@@ -851,7 +858,7 @@ footer .logo{
         width: 100%;
     }
 
-    .about, .mentions-legales{
+    .about, .mentions-legales, .politique-confidentialite{
         background-color: var(--fern);
         width: 90%;
         padding: 2rem 7rem 2rem 7rem;

@@ -24,4 +24,8 @@ class HomeController
     public function mentionsLegales(){
         require_once __DIR__ . '/../views/mentions-legales.php';
     }
+
+    public function politiqueConfidentialite(){
+        require_once __DIR__ . '/../views/politique-confidentialite.php';
+    }
 }
