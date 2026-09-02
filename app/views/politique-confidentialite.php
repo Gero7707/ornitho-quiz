@@ -3,7 +3,7 @@ require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/../views/layout/nav.php';
 ?>
 
-<main>
+<main class="main-confidentialite">
     <section class="politique-confidentialite d-flex flex-column mb-5">
         <h1 class="text-center">Politique de confidentialité</h1>
         <p><em>Dernière mise à jour : 02/09/2026</em></p>
