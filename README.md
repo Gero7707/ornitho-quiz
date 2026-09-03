@@ -67,6 +67,15 @@ app/
 - Identification par le son : **BirdNET v2.4** (Cornell Lab of Ornithology), licence
   CC BY-NC-SA 4.0
 
+## Outillage
+ 
+Les scripts Python d'import et d'enrichissement de données (Xeno-canto, IUCN,
+descriptions Wikipedia, images, nettoyage R2) ont été développés avec l'assistance d'un
+outil d'intelligence artificielle. Le développement de l'application elle-même (PHP/MVC,
+sécurité, base de données) a été réalisé personnellement, avec l'IA utilisée en tant que
+mentor pédagogique (explications, guidage, revue de code).
+
+
 ## Documents légaux
 
 - [Mentions légales](https://ornitho-quiz.fr/mentions-legales)
