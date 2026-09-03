@@ -28,7 +28,8 @@ require_once __DIR__ . '/../layout/nav.php';
                 </div>
                 <input class="form-control"  type="password" name="password_confirm" id="password_confirm" required><br>
 
-                <label class="form-label" class="mt-3 texte-check form-check-label" for="rgpd"><input class="form-check-input check" type="checkbox" name="rgpd" id="rgpd" required>J'accepte que mes données personnelles <br> soient collectées et traitées conformément à notre <br>
+                <label class="form-label form-confidentialite" class="mt-3 texte-check form-check-label" for="rgpd">
+                    <input class="form-check-input check" type="checkbox" name="rgpd" id="rgpd" required>J'accepte que mes données personnelles <br> soient collectées et traitées conformément à notre <br>
                     <a href="/mentions-legales">politique de confidentialité</a>
                 </label><br>
                 <a class="annuler mt-3 text-center" href="/">Annuler</a><br>

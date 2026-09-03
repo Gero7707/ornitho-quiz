@@ -183,6 +183,14 @@ input[type=checkbox]{
     color: var(--dawn);
 }
 
+.form-confidentialite a{
+    color: var(--gold);
+}
+
+.form-confidentialite a:hover{
+    color: var(--dawn);
+}
+
 /* Modal validation formuliare */
 .popover-modal{
     border: 1px solid var(--cream);
