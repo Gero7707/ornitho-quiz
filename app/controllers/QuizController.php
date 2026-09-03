@@ -9,7 +9,7 @@ require_once __DIR__ . '/../models/StatModel.php';
 class QuizController {
 
     public function accueilQuiz(){
-        include __DIR__ . '/../views/quiz/accueilQuiz.php';
+        require_once __DIR__ . '/../views/quiz/accueilQuiz.php';
     }
 
 
@@ -37,7 +37,7 @@ class QuizController {
         $sonsAleatoires[] = $intru;
         $quatreSons = $sonsAleatoires;
         shuffle($quatreSons);
-        include __DIR__ . '/../views/quiz/quiz.php';
+        require_once __DIR__ . '/../views/quiz/quiz.php';
     }
 
     public function valider(){
@@ -99,7 +99,7 @@ class QuizController {
             );
         }
 
-        include __DIR__ . '/../views/quiz/finQuiz.php';
+        require_once __DIR__ . '/../views/quiz/finQuiz.php';
     }
 
     public function jeu2() {
@@ -109,7 +109,7 @@ class QuizController {
         $chantOuCri = $sonModel->getRandomSonChantOuCri($region);
         $oiseauModel = new Oiseau();
         $oiseau = $oiseauModel->getById($chantOuCri['oiseau_id']);
-        include __DIR__ . '/../views/quiz/quiz2.php';
+        require_once __DIR__ . '/../views/quiz/quiz2.php';
     }
 
     public function validerJeu2(){
@@ -153,7 +153,7 @@ class QuizController {
         } else {
             $oiseau = $oiseauModel->getRandomOiseau($region);
         }
-        include __DIR__ . '/../views/quiz/quiz3.php';
+        require_once __DIR__ . '/../views/quiz/quiz3.php';
     }
 
     public function validerJeu3(){
@@ -195,7 +195,7 @@ class QuizController {
         $quatreNoms = $troisOiseaux;
         shuffle($quatreNoms);
         $bonneReponse = $oiseau['id'];
-        include __DIR__ . '/../views/quiz/quiz4.php';
+        require_once __DIR__ . '/../views/quiz/quiz4.php';
     }
 
     public function validerJeu4(){
@@ -262,6 +262,6 @@ class QuizController {
             'jeu3' => 'quiz3.php',
             'jeu4' => 'quiz4.php',
         ];
-        include __DIR__ . '/../views/quiz/' . $vues[$jeu];
+        require_once __DIR__ . '/../views/quiz/' . $vues[$jeu];
     }
 }

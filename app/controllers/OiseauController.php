@@ -16,7 +16,7 @@ class OiseauController {
         } else {
             $this->oiseaux = $oiseauModel->getAll($region);
         }
-        include __DIR__ . '/../views/oiseaux/oiseauxParEspece.php';
+        require_once __DIR__ . '/../views/oiseaux/oiseauxParEspece.php';
     }
 
     public function show($id) {
@@ -42,13 +42,13 @@ class OiseauController {
         $images = $imageModel->getByOiseauId($id);
         $description = $data['extract'] ?? null;
 
-        include __DIR__ . '/../views/sons/sonsListe.php';
+        require_once __DIR__ . '/../views/sons/sonsListe.php';
     }
 
     public function getByLettre($lettre) {
         $oiseauModel = new Oiseau();
         $this->oiseaux = $oiseauModel->getByLettre($lettre);
-        include __DIR__ . '/../views/oiseaux/oiseauxParEspece.php';
+        require_once __DIR__ . '/../views/oiseaux/oiseauxParEspece.php';
     }
 
 }
